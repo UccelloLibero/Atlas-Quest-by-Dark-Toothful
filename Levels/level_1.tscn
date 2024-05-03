@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://decym5kwcvuq2"]
+[gd_scene load_steps=6 format=3 uid="uid://decym5kwcvuq2"]
 
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="1_cl3b6"]
+[ext_resource type="Texture2D" uid="uid://5edcd3irox5i" path="res://Assets/Pixel Art Adventure 1/Background/Green.png" id="1_q3jm4"]
 [ext_resource type="PackedScene" uid="uid://b2uyic5t8hh12" path="res://Characters/player.tscn" id="2_5sw7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f2wa"]
@@ -4840,6 +4841,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8f2wa")
 
 [node name="Level1" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -946.0
+offset_top = -669.0
+offset_right = 1275.0
+offset_bottom = 815.0
+texture = ExtResource("1_q3jm4")
+stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ave2v")
