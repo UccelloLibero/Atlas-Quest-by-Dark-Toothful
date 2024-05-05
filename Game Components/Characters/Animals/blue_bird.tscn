@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://du8tvjpkl6snr"]
 
-[ext_resource type="Texture2D" uid="uid://b01cqo5c6ov7k" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/BlueBird/Flying (32x32).png" id="1_mywtg"]
-[ext_resource type="Texture2D" uid="uid://c8jmkcu054clw" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/BlueBird/Hit (32x32).png" id="2_c25gq"]
+[ext_resource type="Texture2D" uid="uid://b01cqo5c6ov7k" path="res://Assets/Pixel Art Adventure 2/Various Sprites/BlueBird/Flying (32x32).png" id="1_mywtg"]
+[ext_resource type="Texture2D" uid="uid://c8jmkcu054clw" path="res://Assets/Pixel Art Adventure 2/Various Sprites/BlueBird/Hit (32x32).png" id="2_c25gq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5ije"]
 atlas = ExtResource("1_mywtg")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=25 format=3 uid="uid://7qqkurw2nmcy"]
 
-[ext_resource type="Texture2D" uid="uid://bk16ukqdn26ro" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Bee/Attack (36x34).png" id="1_mjpoy"]
-[ext_resource type="Texture2D" uid="uid://b2cvon6f3w77n" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Bee/Hit (36x34).png" id="2_hpk7e"]
-[ext_resource type="Texture2D" uid="uid://dxt3diex126uh" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Bee/Idle (36x34).png" id="3_b3n82"]
+[ext_resource type="Texture2D" uid="uid://bk16ukqdn26ro" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Bee/Attack (36x34).png" id="1_mjpoy"]
+[ext_resource type="Texture2D" uid="uid://b2cvon6f3w77n" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Bee/Hit (36x34).png" id="2_hpk7e"]
+[ext_resource type="Texture2D" uid="uid://dxt3diex126uh" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Bee/Idle (36x34).png" id="3_b3n82"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cwnd"]
 atlas = ExtResource("1_mjpoy")

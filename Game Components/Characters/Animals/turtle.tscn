@@ -1,10 +1,10 @@
 [gd_scene load_steps=57 format=3 uid="uid://diw78oolinb4u"]
 
-[ext_resource type="Texture2D" uid="uid://jgnb7asppab2" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Turtle/Hit (44x26).png" id="1_0pqtb"]
-[ext_resource type="Texture2D" uid="uid://dmjfmrtdsrcia" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Turtle/Idle 1 (44x26).png" id="2_cyepl"]
-[ext_resource type="Texture2D" uid="uid://byqfgvkxghsgu" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Turtle/Idle 2 (44x26).png" id="3_mrj6s"]
-[ext_resource type="Texture2D" uid="uid://b62ja7xkbstyb" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Turtle/Spikes in (44x26).png" id="4_dpj0t"]
-[ext_resource type="Texture2D" uid="uid://bxx0cgi8rx5uh" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/Turtle/Spikes out (44x26).png" id="5_2twip"]
+[ext_resource type="Texture2D" uid="uid://jgnb7asppab2" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Turtle/Hit (44x26).png" id="1_0pqtb"]
+[ext_resource type="Texture2D" uid="uid://dmjfmrtdsrcia" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Turtle/Idle 1 (44x26).png" id="2_cyepl"]
+[ext_resource type="Texture2D" uid="uid://byqfgvkxghsgu" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Turtle/Idle 2 (44x26).png" id="3_mrj6s"]
+[ext_resource type="Texture2D" uid="uid://b62ja7xkbstyb" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Turtle/Spikes in (44x26).png" id="4_dpj0t"]
+[ext_resource type="Texture2D" uid="uid://bxx0cgi8rx5uh" path="res://Assets/Pixel Art Adventure 2/Various Sprites/Turtle/Spikes out (44x26).png" id="5_2twip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hahy"]
 atlas = ExtResource("1_0pqtb")
