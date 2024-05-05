@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://b2uyic5t8hh12"]
 
-[ext_resource type="Script" path="res://Characters/player.gd" id="1_71nt8"]
+[ext_resource type="Script" path="res://Game Components/Characters/Player/player.gd" id="1_71nt8"]
 [ext_resource type="Texture2D" uid="uid://dq2ook4w53f1i" path="res://Assets/Adventurer/Individual Sprites/adventurer-attack2-00.png" id="2_himyk"]
 [ext_resource type="Texture2D" uid="uid://b036jprnwvyp3" path="res://Assets/Adventurer/Individual Sprites/adventurer-attack2-01.png" id="3_elssy"]
 [ext_resource type="Texture2D" uid="uid://qmm3g2tf7272" path="res://Assets/Adventurer/Individual Sprites/adventurer-attack2-02.png" id="4_wkv85"]

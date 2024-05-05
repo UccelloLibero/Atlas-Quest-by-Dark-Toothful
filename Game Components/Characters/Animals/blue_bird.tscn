@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://du8tvjpkl6snr"]
+
+[ext_resource type="Texture2D" uid="uid://b01cqo5c6ov7k" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/BlueBird/Flying (32x32).png" id="1_mywtg"]
+[ext_resource type="Texture2D" uid="uid://c8jmkcu054clw" path="res://Assets/Pixel Art Adventure 2/Enemies:Sprites/BlueBird/Hit (32x32).png" id="2_c25gq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5ije"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3wke"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njxky"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6inyw"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6tx6"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ko2l"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbd6u"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fe86"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpbja"]
+atlas = ExtResource("1_mywtg")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klk1y"]
+atlas = ExtResource("2_c25gq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3h6j"]
+atlas = ExtResource("2_c25gq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_575yn"]
+atlas = ExtResource("2_c25gq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in8xm"]
+atlas = ExtResource("2_c25gq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3auei"]
+atlas = ExtResource("2_c25gq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_28ueb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5ije")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3wke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njxky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6inyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6tx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ko2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbd6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fe86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpbja")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klk1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3h6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_575yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in8xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3auei")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcpp5"]
+size = Vector2(32, 19)
+
+[node name="BlueBird" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_28ueb")
+animation = &"hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_fcpp5")

@@ -10,6 +10,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Reference the AnimatedSprite2D node inside the Player scene
 @onready var animated_sprite = $AnimatedSprite2D
 
+# Declare whether character is dead or alive
+var _died = false
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -48,3 +51,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+# Function to handle dying
+func die():
+	# Set die variable to true
+	_died = true
