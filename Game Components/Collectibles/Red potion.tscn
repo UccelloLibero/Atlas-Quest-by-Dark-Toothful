@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://y7vll4ghlme4"]
+
+[ext_resource type="Texture2D" uid="uid://cs7npyqf3io8i" path="res://Assets/Collectibles/Potions/Red potions/poç╞o vermelha.png" id="1_nfxg3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tukx5"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qok5u"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ri5"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie5tt"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6jr5"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f4y2"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkpo6"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rgq2"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80qvv"]
+atlas = ExtResource("1_nfxg3")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bka4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tukx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qok5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ri5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie5tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6jr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f4y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkpo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rgq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80qvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oua3g"]
+
+[node name="RedPotion" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_bka4u")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_oua3g")
