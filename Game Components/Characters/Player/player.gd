@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
 
+# Set up signal
+signal hit
+# Player movement variables 
+
+
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -10,10 +16,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Reference the AnimatedSprite2D node inside the Player scene
 @onready var animated_sprite = $AnimatedSprite2D
 
+# Reference a timer node 
+@onready var reset_timer = $ResetTimer
+
 # Declare whether character is dead or alive
 var _died = false
 
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -49,10 +59,21 @@ func _physics_process(delta):
 			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 
 	move_and_slide()
+	
+	
+# Handle death
+func _on_death_zone_body_entered(body):
+	if body == self:
+		reset_timer.start()
+	
+	
 
-# Function to handle dying
-func die():
-	# Set die variable to true
-	_died = true
+
+
+func _on_reset_timer_timeout():
+	# Reset level or set the player's position to the starting point
+	global_position = Vector2(50,-20) # Update to desired starting point for each level
+	velocity = Vector2.ZERO # Reset velocity

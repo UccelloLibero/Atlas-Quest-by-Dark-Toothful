@@ -5332,6 +5332,7 @@ offset_top = -498.0
 offset_right = 1154.0
 offset_bottom = 414.0
 texture = ExtResource("1_nj502")
+stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4x766")
