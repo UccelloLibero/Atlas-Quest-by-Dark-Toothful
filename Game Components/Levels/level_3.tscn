@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://ba6uscpvdgppn"]
+[gd_scene load_steps=25 format=3 uid="uid://ba6uscpvdgppn"]
 
 [ext_resource type="Texture2D" uid="uid://dexasjncjmev4" path="res://Assets/Pixel Art Adventure 1/Background/Yellow.png" id="1_nj502"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_ffvfs"]
 [ext_resource type="Texture2D" uid="uid://c5q2tap3mioum" path="res://Assets/Pixel Art Adventure 1/Terrain/Terrain (16x16).png" id="3_bqidb"]
 [ext_resource type="PackedScene" uid="uid://b2uyic5t8hh12" path="res://Game Components/Characters/Player/player.tscn" id="4_nmdqn"]
 [ext_resource type="Texture2D" uid="uid://bk3d2bhp5gkuq" path="res://Assets/Enemies/Rino/Idle (52x34).png" id="5_eipi7"]
-[ext_resource type="PackedScene" uid="uid://br3tui4ib6klj" path="res://Game Components/Characters/Animals/Elephant.tscn" id="6_e45j5"]
+[ext_resource type="PackedScene" path="res://Game Components/Characters/Animals/Elephant.tscn" id="6_e45j5"]
 [ext_resource type="PackedScene" uid="uid://y7vll4ghlme4" path="res://Game Components/Collectibles/Red potion.tscn" id="7_ywh8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xmyt"]
@@ -5324,6 +5324,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxxcq"]
 size = Vector2(47, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6d3l"]
+size = Vector2(737, 39)
+
 [node name="Level3" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -5345,6 +5348,9 @@ position = Vector2(89, -65)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
+[node name="ResetTimer" type="Timer" parent="Player"]
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(89, -65)
 
@@ -5365,3 +5371,12 @@ position = Vector2(1360, -97)
 
 [node name="RedPotion" parent="." instance=ExtResource("7_ywh8i")]
 position = Vector2(1083, -87)
+
+[node name="DeathZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(324, 32)
+shape = SubResource("RectangleShape2D_u6d3l")
+
+[connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
+[connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]

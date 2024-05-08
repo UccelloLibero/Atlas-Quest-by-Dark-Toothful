@@ -75,5 +75,9 @@ func _on_death_zone_body_entered(body):
 
 func _on_reset_timer_timeout():
 	# Reset level or set the player's position to the starting point
-	global_position = Vector2(50,-20) # Update to desired starting point for each level
+	global_position = Vector2(89,-65) # Update to desired starting point for each level
 	velocity = Vector2.ZERO # Reset velocity
+
+
+func _on_restet_timer_timeout():
+	pass # Replace with function body.
