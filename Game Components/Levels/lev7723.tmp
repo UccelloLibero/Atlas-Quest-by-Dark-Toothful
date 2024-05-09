@@ -5592,7 +5592,7 @@ script = ExtResource("6_vi8xp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rhino"]
 sprite_frames = SubResource("SpriteFrames_03uwv")
 animation = &"run"
-frame_progress = 0.553058
+frame_progress = 0.720076
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rhino"]
 shape = SubResource("RectangleShape2D_gxxcq")
