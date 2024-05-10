@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmq0p0lb57pq8"]
+
+[ext_resource type="Script" path="res://Game Components/Characters/Animals/Bee.gd" id="1_xo5qa"]
+[ext_resource type="Texture2D" uid="uid://b40k7r1unk6ip" path="res://Assets/Enemies/Bee/Idle (36x34).png" id="2_ho3y7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e165b"]
+atlas = ExtResource("2_ho3y7")
+region = Rect2(0, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_018fg"]
+atlas = ExtResource("2_ho3y7")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4upa2"]
+atlas = ExtResource("2_ho3y7")
+region = Rect2(72, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i04am"]
+atlas = ExtResource("2_ho3y7")
+region = Rect2(108, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gny43"]
+atlas = ExtResource("2_ho3y7")
+region = Rect2(144, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5pmy"]
+atlas = ExtResource("2_ho3y7")
+region = Rect2(180, 0, 36, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thw3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e165b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_018fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4upa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i04am")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gny43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5pmy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_106fy"]
+size = Vector2(88.5, 85)
+
+[node name="Bee" type="Area2D"]
+script = ExtResource("1_xo5qa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_thw3w")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 7.5)
+shape = SubResource("RectangleShape2D_106fy")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Well hello there. I am working. "
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

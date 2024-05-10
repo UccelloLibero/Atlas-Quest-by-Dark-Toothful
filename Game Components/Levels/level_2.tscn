@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://c5wi74bylfhut"]
+[gd_scene load_steps=80 format=3 uid="uid://c5wi74bylfhut"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_2.gd" id="1_g0gbp"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_8h35c"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://7oyw45tvgm5x" path="res://Assets/Tilesets/Nature/Object/Bush (3).png" id="37_4s1eb"]
 [ext_resource type="Texture2D" uid="uid://deoeglnb5n8oq" path="res://Assets/Tilesets/Nature/Object/Tree_3.png" id="38_c73ci"]
 [ext_resource type="Texture2D" uid="uid://btdrhc18ky8e6" path="res://Assets/Tilesets/Nature/Object/Mushroom_1.png" id="40_6yv8m"]
+[ext_resource type="PackedScene" uid="uid://dmq0p0lb57pq8" path="res://Game Components/Characters/Animals/bee.tscn" id="44_up38h"]
 [ext_resource type="PackedScene" uid="uid://byxx167ni6cn4" path="res://Game Components/Collectibles/pineapple.tscn" id="45_krwph"]
 [ext_resource type="PackedScene" uid="uid://boxhfv6yo4it" path="res://Game Components/Obstacles/bad_plant.tscn" id="45_y3gcn"]
 [ext_resource type="PackedScene" uid="uid://y2s4g3t3e06d" path="res://Game Components/Change Scene/change_scene.tscn" id="46_5knsa"]
@@ -12427,8 +12428,11 @@ position = Vector2(3151, 57)
 position = Vector2(335, 524)
 
 [node name="ChangeScene" parent="." instance=ExtResource("46_5knsa")]
-position = Vector2(500, 500)
+position = Vector2(1000, 500)
 scale = Vector2(3, 3)
+
+[node name="Bee" parent="." instance=ExtResource("44_up38h")]
+position = Vector2(671, 469)
 
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]
