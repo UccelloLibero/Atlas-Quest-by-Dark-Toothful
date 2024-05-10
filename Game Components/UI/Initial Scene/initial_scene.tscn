@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ksnxyadkwec"]
+
+[ext_resource type="Texture2D" uid="uid://cb02jb8p0550v" path="res://Assets/Tilesets/Nature/BG/Sky-Background-Pixel-Art.jpeg" id="1_3oerq"]
+[ext_resource type="Texture2D" uid="uid://dfk8wh3kxidrm" path="res://Assets/Tilesets/Nature/BG/1392835811 (1).png" id="2_msmw2"]
+
+[node name="InitialScene" type="Node2D"]
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Main"]
+position = Vector2(624, 376)
+texture = ExtResource("1_3oerq")
+
+[node name="Earth" type="Sprite2D" parent="Main"]
+position = Vector2(540, 283.5)
+scale = Vector2(4.64, 4.15)
+texture = ExtResource("2_msmw2")
+
+[node name="Label" type="Label" parent="Main/Earth"]
+offset_left = -80.0
+offset_top = -20.0
+offset_right = 10.0
+offset_bottom = 3.0
+scale = Vector2(2, 2)
+text = "Atlas Quest"
+
+[node name="Label2" type="Label" parent="Main/Earth"]
+offset_left = -112.285
+offset_top = -46.1446
+offset_right = -72.2845
+offset_bottom = -23.1446
+text = "Saving Natures Legacy"

@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://y2s4g3t3e06d"]
+
+[ext_resource type="Texture2D" uid="uid://bd2c5uo2rwepb" path="res://Assets/Scene Change Door/portalRings2.png" id="1_3a260"]
+[ext_resource type="Script" path="res://Game Components/Change Scene/change_scene.gd" id="1_l0q22"]
+[ext_resource type="AudioStream" uid="uid://dyphx0kg2av1d" path="res://Assets/Sounds/pickup_life.ogg" id="2_glw1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfgma"]
+atlas = ExtResource("1_3a260")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6p3t"]
+atlas = ExtResource("1_3a260")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1wmn"]
+atlas = ExtResource("1_3a260")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de1i8"]
+atlas = ExtResource("1_3a260")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pl0c"]
+atlas = ExtResource("1_3a260")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22bu6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfgma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6p3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1wmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de1i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pl0c")
+}],
+"loop": true,
+"name": &"walk_in",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdwfo"]
+size = Vector2(20, 26)
+
+[node name="ChangeScene" type="Area2D"]
+script = ExtResource("1_l0q22")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_22bu6")
+animation = &"walk_in"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_kdwfo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_glw1g")
+pitch_scale = 0.5
