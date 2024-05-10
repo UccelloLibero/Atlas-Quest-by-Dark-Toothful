@@ -48,5 +48,9 @@ func move_towards_player(player):
 	velocity = direction * SPEED
 	velocity.y = 0 #enemy only moves left and right
 	
+
+
+	
 func _ready():
 	animated_sprite.play(IDLE_ANIMATION)
+
