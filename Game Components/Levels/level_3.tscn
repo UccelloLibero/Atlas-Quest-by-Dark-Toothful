@@ -1,28 +1,15 @@
+
 [gd_scene load_steps=101 format=3 uid="uid://ba6uscpvdgppn"]
 
+
+[ext_resource type="Script" path="res://Game Components/Levels/level_3.gd" id="1_gpwbb"]
 [ext_resource type="Texture2D" uid="uid://dexasjncjmev4" path="res://Assets/Pixel Art Adventure 1/Background/Yellow.png" id="1_nj502"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_ffvfs"]
 [ext_resource type="Texture2D" uid="uid://c5q2tap3mioum" path="res://Assets/Pixel Art Adventure 1/Terrain/Terrain (16x16).png" id="3_bqidb"]
 [ext_resource type="Texture2D" uid="uid://jm1fhyrhewkn" path="res://Assets/Trees/48x48 trees.png" id="4_768on"]
 [ext_resource type="PackedScene" uid="uid://b2uyic5t8hh12" path="res://Game Components/Characters/Player/player.tscn" id="4_nmdqn"]
-[ext_resource type="Texture2D" uid="uid://cmg3bp8f74uo2" path="res://Assets/Tilesets/Tiles/8.png" id="4_t4esf"]
-[ext_resource type="Texture2D" uid="uid://bn03w1yafixb1" path="res://Assets/Tilesets/Tiles/9.png" id="5_fjeyb"]
-[ext_resource type="Texture2D" uid="uid://dhs7wsvfm2hpx" path="res://Assets/Tilesets/Tiles/10.png" id="6_i27j3"]
-[ext_resource type="Texture2D" uid="uid://bj2mkr7yptvn8" path="res://Assets/Tilesets/Tiles/11.png" id="7_ewv1e"]
-[ext_resource type="Texture2D" uid="uid://0hv46geh1ppj" path="res://Assets/Tilesets/Tiles/12.png" id="8_axv5k"]
-[ext_resource type="Texture2D" uid="uid://cdu16xb55ajru" path="res://Assets/Tilesets/Tiles/13.png" id="9_ogoqs"]
-[ext_resource type="Texture2D" uid="uid://c8wyut5sfi7pg" path="res://Assets/Tilesets/Tiles/14.png" id="10_elhb3"]
-[ext_resource type="Texture2D" uid="uid://bunpfe1tuwcx3" path="res://Assets/Tilesets/Tiles/15.png" id="11_tjrrm"]
-[ext_resource type="Texture2D" uid="uid://do5uh7lo4jqyy" path="res://Assets/Tilesets/Tiles/16.png" id="12_71mlw"]
-[ext_resource type="Texture2D" uid="uid://b7ojkc45iquiv" path="res://Assets/Tilesets/Tiles/17.png" id="13_piggi"]
-[ext_resource type="Texture2D" uid="uid://lkhwq47vmord" path="res://Assets/Tilesets/Tiles/18.png" id="15_8wukp"]
-[ext_resource type="Texture2D" uid="uid://cyad10q3hwx3h" path="res://Assets/Tilesets/Tiles/1.png" id="16_vrvio"]
-[ext_resource type="Texture2D" uid="uid://cu44ukjt3awmv" path="res://Assets/Tilesets/Tiles/2.png" id="17_tf3aq"]
-[ext_resource type="Texture2D" uid="uid://dcirwrp4kqcjh" path="res://Assets/Tilesets/Tiles/3.png" id="18_duqpn"]
-[ext_resource type="Texture2D" uid="uid://disxux8fks4f3" path="res://Assets/Tilesets/Tiles/4.png" id="19_rk3o7"]
-[ext_resource type="Texture2D" uid="uid://e0n4523jsy4l" path="res://Assets/Tilesets/Tiles/5.png" id="20_gs5ns"]
-[ext_resource type="Texture2D" uid="uid://dlgp0s3yko5x7" path="res://Assets/Tilesets/Tiles/6.png" id="21_f3hlw"]
-[ext_resource type="Texture2D" uid="uid://bfaithjxb0qh4" path="res://Assets/Tilesets/Tiles/7.png" id="22_1ru1y"]
+
+
 [ext_resource type="PackedScene" uid="uid://b2163igrx7nge" path="res://rhino.tscn" id="24_exqat"]
 [ext_resource type="PackedScene" uid="uid://bt6keukg2ul6m" path="res://generic_enemy.tscn" id="25_c584y"]
 [ext_resource type="PackedScene" uid="uid://b47heuubi12n2" path="res://Apple.tscn" id="26_nmvum"]
@@ -31,6 +18,8 @@
 [ext_resource type="Script" path="res://Game Components/Levels/Elephant.gd" id="31_pgbdl"]
 [ext_resource type="Texture2D" uid="uid://0wnql3mbth76" path="res://Assets/Sprites/Elephant/elephant.png" id="32_84mde"]
 [ext_resource type="Texture2D" uid="uid://dfbsrki06huod" path="res://Assets/Keys etc/08.png" id="32_ddvj6"]
+
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xmyt"]
 texture = ExtResource("2_ffvfs")
@@ -9031,6 +9020,7 @@ animations = [{
 size = Vector2(103, 62)
 
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_gpwbb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -324.0
@@ -9181,5 +9171,9 @@ animation = &"idle"
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_aruay")
 
+[node name="ChangeScene" parent="." instance=ExtResource("8_vpj0e")]
+position = Vector2(141, -68)
+
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="ChangeScene" to="." method="_on_change_scene_body_entered"]
