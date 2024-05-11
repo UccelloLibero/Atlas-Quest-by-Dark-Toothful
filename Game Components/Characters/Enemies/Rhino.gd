@@ -35,12 +35,10 @@ func _physics_process(delta):
 	#Play running animation based on player's proximity
 	if player_in_range:
 		#Run toward player
-		print("Playing run animation")
 		animated_sprite.play("run")
 		#Move towards player (left direction)
 		move_towards_player(player)
 	else:
-		print("Playing idle animation")
 		animated_sprite.play(IDLE_ANIMATION)
 
 
@@ -50,5 +48,9 @@ func move_towards_player(player):
 	velocity = direction * SPEED
 	velocity.y = 0 #enemy only moves left and right
 	
+
+
+	
 func _ready():
 	animated_sprite.play(IDLE_ANIMATION)
+
