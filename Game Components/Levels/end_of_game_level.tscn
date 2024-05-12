@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://svesobw3t8bp"]
+
+[ext_resource type="Script" path="res://Game Components/Levels/EndOfGameLevel.gd" id="1_kyqj1"]
+[ext_resource type="Texture2D" uid="uid://cb02jb8p0550v" path="res://Assets/Tilesets/Nature/BG/Sky-Background-Pixel-Art.jpeg" id="2_d7dab"]
+
+[node name="EndOfGameLevel" type="Node2D"]
+script = ExtResource("1_kyqj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(542, 384)
+texture = ExtResource("2_d7dab")
+
+[node name="PlayAgain" type="Button" parent="."]
+offset_left = 250.0
+offset_top = 300.0
+offset_right = 450.0
+offset_bottom = 400.0
+text = "Play Again"
+
+[node name="GameOver" type="Button" parent="."]
+offset_left = 750.0
+offset_top = 300.0
+offset_right = 950.0
+offset_bottom = 400.0
+text = "Game Over"
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GameOver" to="." method="_on_game_over_pressed"]

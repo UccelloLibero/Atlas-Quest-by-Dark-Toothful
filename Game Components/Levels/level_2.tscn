@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://c5wi74bylfhut"]
+[gd_scene load_steps=76 format=3 uid="uid://c5wi74bylfhut"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_2.gd" id="1_g0gbp"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_8h35c"]
@@ -34,22 +34,16 @@
 [ext_resource type="Texture2D" uid="uid://da4s3aluoeq8u" path="res://Assets/Tilesets/Nature/Object/Tree_2.png" id="31_p2oxu"]
 [ext_resource type="Texture2D" uid="uid://dp16owjirbhms" path="res://Assets/Tilesets/Nature/Object/Sign_2.png" id="32_sqorx"]
 [ext_resource type="Texture2D" uid="uid://dv2ufgyf4l1hg" path="res://Assets/Tilesets/Nature/Object/Mushroom_2.png" id="33_3xvd1"]
-[ext_resource type="PackedScene" uid="uid://cwc1xm5nvilu7" path="res://Game Components/Collectibles/apple.tscn" id="34_bplvl"]
 [ext_resource type="Texture2D" uid="uid://cxqqmydtxk5q6" path="res://Assets/Tilesets/Nature/Object/Tree_1.png" id="34_nlrw7"]
-[ext_resource type="PackedScene" uid="uid://cecr7c85bkb8v" path="res://Game Components/Collectibles/bananas.tscn" id="35_6tyhg"]
 [ext_resource type="Texture2D" uid="uid://brgdis5sqhjth" path="res://Assets/Tilesets/Nature/Object/Bush (2).png" id="35_h726m"]
 [ext_resource type="Texture2D" uid="uid://qtj2bwldgesi" path="res://Assets/Tilesets/Nature/Object/Sign_1.png" id="35_mdkgh"]
 [ext_resource type="Texture2D" uid="uid://cdkfl3hcq5nd4" path="res://Assets/Tilesets/Nature/Object/Stone.png" id="36_j104y"]
-[ext_resource type="PackedScene" uid="uid://brwl6b4b68i4b" path="res://Game Components/Collectibles/cherries.tscn" id="36_ttdlw"]
 [ext_resource type="Texture2D" uid="uid://7oyw45tvgm5x" path="res://Assets/Tilesets/Nature/Object/Bush (3).png" id="37_4s1eb"]
 [ext_resource type="Texture2D" uid="uid://deoeglnb5n8oq" path="res://Assets/Tilesets/Nature/Object/Tree_3.png" id="38_c73ci"]
 [ext_resource type="Texture2D" uid="uid://btdrhc18ky8e6" path="res://Assets/Tilesets/Nature/Object/Mushroom_1.png" id="40_6yv8m"]
+[ext_resource type="PackedScene" uid="uid://ba2ieqjdrbmwr" path="res://Game Components/Collectibles/fruit.tscn" id="42_1xr38"]
 [ext_resource type="PackedScene" uid="uid://dmq0p0lb57pq8" path="res://Game Components/Characters/Animals/bee.tscn" id="44_up38h"]
-[ext_resource type="PackedScene" uid="uid://byxx167ni6cn4" path="res://Game Components/Collectibles/pineapple.tscn" id="45_krwph"]
 [ext_resource type="PackedScene" uid="uid://y2s4g3t3e06d" path="res://Game Components/Change Scene/change_scene.tscn" id="46_5knsa"]
-[ext_resource type="PackedScene" uid="uid://dmwh268gfrbaf" path="res://Game Components/Collectibles/strawberry.tscn" id="46_ywdi8"]
-[ext_resource type="PackedScene" uid="uid://djwcui5nmejpc" path="res://Game Components/Objects/ladder.tscn" id="50_nh36l"]
-[ext_resource type="PackedScene" uid="uid://ba2ieqjdrbmwr" path="res://Game Components/Collectibles/energy.tscn" id="51_1x38v"]
 [ext_resource type="PackedScene" uid="uid://bvgvkhyqotmn2" path="res://Game Components/Collectibles/life_biofact.tscn" id="51_rt80b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6unr"]
@@ -12404,29 +12398,28 @@ texture = ExtResource("40_6yv8m")
 
 [node name="Collectibles" type="Node2D" parent="."]
 
-[node name="Apple" parent="Collectibles" instance=ExtResource("34_bplvl")]
-position = Vector2(834, 189)
-scale = Vector2(1.5, 1.5)
+[node name="Energy" parent="Collectibles" instance=ExtResource("42_1xr38")]
+position = Vector2(828, 179)
 
-[node name="Bananas" parent="Collectibles" instance=ExtResource("35_6tyhg")]
-position = Vector2(867, 186)
-scale = Vector2(1.3, 1.3)
+[node name="Energy2" parent="Collectibles" instance=ExtResource("42_1xr38")]
+position = Vector2(868, 179)
+scale = Vector2(0.1, 0.1)
+fruit = 1
 
-[node name="Cherries" parent="Collectibles" instance=ExtResource("36_ttdlw")]
-position = Vector2(898, 186)
-scale = Vector2(1.4, 1.4)
+[node name="Energy3" parent="Collectibles" instance=ExtResource("42_1xr38")]
+position = Vector2(906, 182)
+fruit = 2
 
-[node name="Pineapple" parent="Collectibles" instance=ExtResource("45_krwph")]
-position = Vector2(932, 185)
+[node name="Energy4" parent="Collectibles" instance=ExtResource("42_1xr38")]
+position = Vector2(942, 180)
+fruit = 3
 
-[node name="Strawberry" parent="Collectibles" instance=ExtResource("46_ywdi8")]
-position = Vector2(963, 187)
+[node name="Energy5" parent="Collectibles" instance=ExtResource("42_1xr38")]
+position = Vector2(979, 179)
+fruit = 4
 
-[node name="Cherries2" parent="Collectibles" instance=ExtResource("36_ttdlw")]
-position = Vector2(991, 189)
-
-[node name="Apple2" parent="Collectibles" instance=ExtResource("34_bplvl")]
-position = Vector2(1020, 189)
+[node name="Energy6" parent="Collectibles" instance=ExtResource("42_1xr38")]
+position = Vector2(1020, 178)
 
 [node name="ChangeScene" parent="." instance=ExtResource("46_5knsa")]
 position = Vector2(1001, 500)
@@ -12434,12 +12427,6 @@ scale = Vector2(3, 3)
 
 [node name="Bee" parent="." instance=ExtResource("44_up38h")]
 position = Vector2(671, 469)
-
-[node name="Ladder" parent="." instance=ExtResource("50_nh36l")]
-position = Vector2(452, 333)
-
-[node name="Ladder2" parent="." instance=ExtResource("50_nh36l")]
-position = Vector2(452, 457)
 
 [node name="LifeBiofact" parent="." instance=ExtResource("51_rt80b")]
 position = Vector2(265, 510)
@@ -12451,10 +12438,6 @@ collect = 1
 
 [node name="LifeBiofact3" parent="." instance=ExtResource("51_rt80b")]
 position = Vector2(-8, 498)
-
-[node name="Energy" parent="." instance=ExtResource("51_1x38v")]
-position = Vector2(345, 485)
-fruit = 4
 
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]

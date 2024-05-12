@@ -145,7 +145,7 @@ func _on_reset_timer_timeout():
 func take_damage():
 	# Deduct and update live
 	if lives > 0:
-		lives = lives -1
+		lives = lives - 1
 		update_lives.emit(lives, max_lives)
 		print(lives)
 		# Play damage animation
