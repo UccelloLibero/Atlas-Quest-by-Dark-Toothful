@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b2uyic5t8hh12"]
+[gd_scene load_steps=47 format=3 uid="uid://b2uyic5t8hh12"]
 
 [ext_resource type="Script" path="res://Game Components/Characters/Player/player.gd" id="1_71nt8"]
 [ext_resource type="Texture2D" uid="uid://dq2ook4w53f1i" path="res://Assets/Adventurer/Individual Sprites/adventurer-attack2-00.png" id="2_himyk"]
@@ -17,9 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://b7odxxwbcyo6v" path="res://Assets/Adventurer/Individual Sprites/adventurer-die-03.png" id="11_k6rd4"]
 [ext_resource type="Texture2D" uid="uid://ukuo2a8j1dtr" path="res://Assets/Adventurer/Individual Sprites/adventurer-die-04.png" id="12_dwwkd"]
 [ext_resource type="Texture2D" uid="uid://c4bjutbocd33b" path="res://Assets/Adventurer/Individual Sprites/adventurer-crnr-clmb-04.png" id="12_tom1g"]
+[ext_resource type="Texture2D" uid="uid://fus8f2qxf8ns" path="res://Assets/Adventurer/Individual Sprites/adventurer-hurt-00.png" id="13_id8m8"]
 [ext_resource type="Texture2D" uid="uid://v4hlptypgpd4" path="res://Assets/Adventurer/Individual Sprites/adventurer-die-05.png" id="13_jroer"]
 [ext_resource type="Texture2D" uid="uid://bsqvknj4uc34u" path="res://Assets/Adventurer/Individual Sprites/adventurer-die-06.png" id="14_46pcv"]
+[ext_resource type="Texture2D" uid="uid://blhr6ivemgom0" path="res://Assets/Adventurer/Individual Sprites/adventurer-hurt-01.png" id="14_a3vvg"]
 [ext_resource type="Texture2D" uid="uid://c6f47nlcag5bn" path="res://Assets/Adventurer/Individual Sprites/adventurer-fall-00.png" id="15_qtg04"]
+[ext_resource type="Texture2D" uid="uid://020a245813bw" path="res://Assets/Adventurer/Individual Sprites/adventurer-hurt-02.png" id="15_y005m"]
 [ext_resource type="Texture2D" uid="uid://bl5ssst1h7c2" path="res://Assets/Adventurer/Individual Sprites/adventurer-fall-01.png" id="16_dgvb3"]
 [ext_resource type="Texture2D" uid="uid://7qcod2utjw31" path="res://Assets/Adventurer/Individual Sprites/adventurer-idle-00.png" id="17_up52h"]
 [ext_resource type="Texture2D" uid="uid://r88eb8q6xbmy" path="res://Assets/Adventurer/Individual Sprites/adventurer-idle-01.png" id="18_i3f5j"]
@@ -35,6 +38,12 @@
 [ext_resource type="Texture2D" uid="uid://4vnwcgts70jx" path="res://Assets/Adventurer/Individual Sprites/adventurer-run-03.png" id="28_i3tn7"]
 [ext_resource type="Texture2D" uid="uid://ca6pebskrp6uk" path="res://Assets/Adventurer/Individual Sprites/adventurer-run-04.png" id="29_icv1o"]
 [ext_resource type="Texture2D" uid="uid://bkud7b80ljwyi" path="res://Assets/Adventurer/Individual Sprites/adventurer-run-05.png" id="30_lgggo"]
+[ext_resource type="Script" path="res://Game Components/UI/LivesBiofactsEnergy/Lives.gd" id="39_ytdgi"]
+[ext_resource type="Texture2D" uid="uid://c7mf0iyhcueah" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/sprite_4.png" id="40_5pgn4"]
+[ext_resource type="Script" path="res://Game Components/UI/LivesBiofactsEnergy/Biofacts.gd" id="41_mofrl"]
+[ext_resource type="Texture2D" uid="uid://dfbsrki06huod" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/08.png" id="42_1sd2u"]
+[ext_resource type="Script" path="res://Game Components/UI/LivesBiofactsEnergy/Energy.gd" id="43_2i7ew"]
+[ext_resource type="Texture2D" uid="uid://cdn30ucsmg8qi" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/UIapple1.png" id="44_lqpwd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2yb0h"]
 animations = [{
@@ -83,6 +92,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("13_id8m8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_a3vvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_y005m")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_72j5s")
 }, {
 "duration": 1.0,
@@ -114,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_dgvb3")
 }],
-"loop": false,
+"loop": true,
 "name": &"fall",
 "speed": 5.0
 }, {
@@ -190,5 +213,95 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_bu436")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Lives" type="ColorRect" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 170.0
+offset_bottom = 70.0
+color = Color(0.298039, 0.298039, 0.301961, 0.407843)
+script = ExtResource("39_ytdgi")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Lives"]
+position = Vector2(30, 25)
+texture = ExtResource("40_5pgn4")
+
+[node name="Label" type="Label" parent="UI/Lives"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Biofacts" type="ColorRect" parent="UI"]
+layout_direction = 3
+offset_left = 502.0
+offset_top = 20.0
+offset_right = 652.0
+offset_bottom = 70.0
+color = Color(0.298039, 0.298039, 0.301961, 0.407843)
+script = ExtResource("41_mofrl")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Biofacts"]
+position = Vector2(30, 25)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("42_1sd2u")
+
+[node name="Label" type="Label" parent="UI/Biofacts"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Energy" type="ColorRect" parent="UI"]
+offset_left = 980.0
+offset_top = 20.0
+offset_right = 1130.0
+offset_bottom = 70.0
+color = Color(0.298039, 0.298039, 0.301961, 0.407843)
+script = ExtResource("43_2i7ew")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Energy"]
+position = Vector2(30, 20)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("44_lqpwd")
+
+[node name="Label" type="Label" parent="UI/Energy"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AttackRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+collide_with_areas = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

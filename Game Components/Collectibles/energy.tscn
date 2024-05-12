@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://ba2ieqjdrbmwr"]
+
+[ext_resource type="Script" path="res://Game Components/Collectibles/Fruit.gd" id="1_5mmk1"]
+[ext_resource type="Texture2D" uid="uid://doo4yjd2w1dfg" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/apple.png" id="2_3wcva"]
+[ext_resource type="Texture2D" uid="uid://6d56f1kmbywb" path="res://Assets/Collectibles/Fruits/Collected.png" id="3_urq15"]
+[ext_resource type="AudioStream" uid="uid://dyphx0kg2av1d" path="res://Assets/Sounds/pickup_life.ogg" id="4_ap5up"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kg33u"]
+radius = 125.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akyio"]
+atlas = ExtResource("3_urq15")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bekmy"]
+atlas = ExtResource("3_urq15")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjydd"]
+atlas = ExtResource("3_urq15")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dfk0"]
+atlas = ExtResource("3_urq15")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxbmg"]
+atlas = ExtResource("3_urq15")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o5yt"]
+atlas = ExtResource("3_urq15")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qw5gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akyio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bekmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjydd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dfk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxbmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o5yt")
+}],
+"loop": true,
+"name": &"collected",
+"speed": 5.0
+}]
+
+[node name="Energy" type="Area2D"]
+scale = Vector2(0.08, 0.08)
+script = ExtResource("1_5mmk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -87.5)
+texture = ExtResource("2_3wcva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kg33u")
+
+[node name="Effect" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qw5gv")
+animation = &"collected"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ap5up")
+pitch_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

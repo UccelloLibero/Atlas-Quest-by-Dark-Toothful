@@ -1,3 +1,4 @@
+# change_scene.gd
 extends Area2D
 
 @onready var door_animation = $AnimatedSprite2D

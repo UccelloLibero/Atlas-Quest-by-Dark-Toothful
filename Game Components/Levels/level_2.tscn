@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://c5wi74bylfhut"]
+[gd_scene load_steps=82 format=3 uid="uid://c5wi74bylfhut"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_2.gd" id="1_g0gbp"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_8h35c"]
@@ -46,9 +46,11 @@
 [ext_resource type="Texture2D" uid="uid://btdrhc18ky8e6" path="res://Assets/Tilesets/Nature/Object/Mushroom_1.png" id="40_6yv8m"]
 [ext_resource type="PackedScene" uid="uid://dmq0p0lb57pq8" path="res://Game Components/Characters/Animals/bee.tscn" id="44_up38h"]
 [ext_resource type="PackedScene" uid="uid://byxx167ni6cn4" path="res://Game Components/Collectibles/pineapple.tscn" id="45_krwph"]
-[ext_resource type="PackedScene" uid="uid://boxhfv6yo4it" path="res://Game Components/Obstacles/bad_plant.tscn" id="45_y3gcn"]
 [ext_resource type="PackedScene" uid="uid://y2s4g3t3e06d" path="res://Game Components/Change Scene/change_scene.tscn" id="46_5knsa"]
 [ext_resource type="PackedScene" uid="uid://dmwh268gfrbaf" path="res://Game Components/Collectibles/strawberry.tscn" id="46_ywdi8"]
+[ext_resource type="PackedScene" uid="uid://djwcui5nmejpc" path="res://Game Components/Objects/ladder.tscn" id="50_nh36l"]
+[ext_resource type="PackedScene" uid="uid://ba2ieqjdrbmwr" path="res://Game Components/Collectibles/energy.tscn" id="51_1x38v"]
+[ext_resource type="PackedScene" uid="uid://bvgvkhyqotmn2" path="res://Game Components/Collectibles/life_biofact.tscn" id="51_rt80b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6unr"]
 texture = ExtResource("2_8h35c")
@@ -12296,6 +12298,11 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(139, 490)
 scale = Vector2(2, 2)
+limit_left = -1000
+limit_top = -500
+limit_right = 100000
+limit_bottom = 1500
+position_smoothing_enabled = true
 
 [node name="DeathZone" type="Area2D" parent="."]
 
@@ -12421,18 +12428,33 @@ position = Vector2(991, 189)
 [node name="Apple2" parent="Collectibles" instance=ExtResource("34_bplvl")]
 position = Vector2(1020, 189)
 
-[node name="BadPlant" parent="." instance=ExtResource("45_y3gcn")]
-position = Vector2(3151, 57)
-
-[node name="BadPlant2" parent="." instance=ExtResource("45_y3gcn")]
-position = Vector2(335, 524)
-
 [node name="ChangeScene" parent="." instance=ExtResource("46_5knsa")]
-position = Vector2(1000, 500)
+position = Vector2(1001, 500)
 scale = Vector2(3, 3)
 
 [node name="Bee" parent="." instance=ExtResource("44_up38h")]
 position = Vector2(671, 469)
+
+[node name="Ladder" parent="." instance=ExtResource("50_nh36l")]
+position = Vector2(452, 333)
+
+[node name="Ladder2" parent="." instance=ExtResource("50_nh36l")]
+position = Vector2(452, 457)
+
+[node name="LifeBiofact" parent="." instance=ExtResource("51_rt80b")]
+position = Vector2(265, 510)
+
+[node name="LifeBiofact2" parent="." instance=ExtResource("51_rt80b")]
+position = Vector2(-131, 494)
+scale = Vector2(2, 2)
+collect = 1
+
+[node name="LifeBiofact3" parent="." instance=ExtResource("51_rt80b")]
+position = Vector2(-8, 498)
+
+[node name="Energy" parent="." instance=ExtResource("51_1x38v")]
+position = Vector2(345, 485)
+fruit = 4
 
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]

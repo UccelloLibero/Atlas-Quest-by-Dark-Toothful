@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ba6uscpvdgppn"]
+[gd_scene load_steps=37 format=3 uid="uid://ba6uscpvdgppn"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_3.gd" id="1_gpwbb"]
 [ext_resource type="Texture2D" uid="uid://dexasjncjmev4" path="res://Assets/Pixel Art Adventure 1/Background/Yellow.png" id="1_nj502"]
@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://jm1fhyrhewkn" path="res://Assets/Trees/48x48 trees.png" id="4_768on"]
 [ext_resource type="PackedScene" uid="uid://b2uyic5t8hh12" path="res://Game Components/Characters/Player/player.tscn" id="4_nmdqn"]
 [ext_resource type="Texture2D" uid="uid://bk3d2bhp5gkuq" path="res://Assets/Enemies/Rino/Idle (52x34).png" id="5_eipi7"]
-[ext_resource type="PackedScene" uid="uid://br3tui4ib6klj" path="res://Game Components/Characters/Animals/Elephant.tscn" id="6_e45j5"]
+[ext_resource type="PackedScene" path="res://Game Components/Characters/Animals/Elephant.tscn" id="6_e45j5"]
 [ext_resource type="Script" path="res://Game Components/Levels/Rhino.gd" id="6_vi8xp"]
 [ext_resource type="PackedScene" uid="uid://y7vll4ghlme4" path="res://Game Components/Collectibles/Red potion.tscn" id="7_ywh8i"]
-[ext_resource type="PackedScene" uid="uid://y2s4g3t3e06d" path="res://Game Components/Change Scene/change_scene.tscn" id="8_vpj0e"]
 [ext_resource type="Texture2D" uid="uid://31vpw385fkqc" path="res://Assets/Enemies/Rino/Run (52x34).png" id="8_swe4o"]
+[ext_resource type="PackedScene" uid="uid://y2s4g3t3e06d" path="res://Game Components/Change Scene/change_scene.tscn" id="8_vpj0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xmyt"]
 texture = ExtResource("2_ffvfs")
