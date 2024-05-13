@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,12 +14,8 @@ var player_in_range = false
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
+	velocity.y += gravity * delta
+
 	# Get a reference to the player node
 	var player = get_parent().get_node("Player") #Adjust path to player
 	
@@ -35,20 +30,24 @@ func _physics_process(delta):
 	#Play running animation based on player's proximity
 	if player_in_range:
 		#Run toward player
-		print("Playing run animation")
 		animated_sprite.play("run")
 		#Move towards player (left direction)
 		move_towards_player(player)
 	else:
-		print("Playing idle animation")
 		animated_sprite.play(IDLE_ANIMATION)
+	move_and_slide()
 
 
 #Function to get enemy to move to the left
 func move_towards_player(player):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * SPEED
-	velocity.y = 0 #enemy only moves left and right
+	velocity.y += gravity #enemy only moves left and right
+	
+	if direction.x < 0:
+		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 	
 func _ready():
 	animated_sprite.play(IDLE_ANIMATION)
