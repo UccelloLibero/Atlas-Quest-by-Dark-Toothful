@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://bt6keukg2ul6m"]
 
-[ext_resource type="Script" path="res://Game Components/Levels/Generic Enemy.gd" id="1_ja6bc"]
+[ext_resource type="Script" path="res://Game Components/Characters/Enemies/Generic Enemy.gd" id="1_ja6bc"]
 [ext_resource type="Texture2D" uid="uid://qwkgdhs5uxl3" path="res://Assets/Poachers/CHARACTER_SPRITES/Red/Gunner_Red_Death.png" id="2_mbs02"]
 [ext_resource type="Texture2D" uid="uid://b5thfru3uswi2" path="res://Assets/Poachers/CHARACTER_SPRITES/Red/Gunner_Red_Idle.png" id="3_r0h0r"]
 [ext_resource type="Texture2D" uid="uid://8q3gc42xsbfj" path="res://Assets/Poachers/CHARACTER_SPRITES/Red/Gunner_Red_Run.png" id="4_fykns"]
@@ -156,8 +156,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_we8vb"]
-radius = 14.5602
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kat3"]
+size = Vector2(26, 32)
 
 [node name="Generic Enemy" type="CharacterBody2D"]
 position = Vector2(1147, -64)
@@ -166,9 +166,10 @@ script = ExtResource("1_ja6bc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_axl2g")
-animation = &"run"
+animation = &"death"
 autoplay = "idle"
+frame_progress = 0.546797
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 1)
-shape = SubResource("CircleShape2D_we8vb")
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_4kat3")

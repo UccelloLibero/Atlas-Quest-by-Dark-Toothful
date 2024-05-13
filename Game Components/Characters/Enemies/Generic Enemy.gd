@@ -34,6 +34,7 @@ func _ready():
 	if moving_direction == 'right':
 		_moving_left = false
 		scale.x = -scale.x
+		$AnimatedSprite2D.flip_h = false
 	if not animation:
 		animation = "idle"
 	_init_state()  ## this needs to connect to something later
@@ -61,7 +62,6 @@ func _physics_process(delta):
 	
 	if animation == "run":
 		_move_character(delta)
-		_turn()
 	elif animation == "idle":
 		_move_idle()
 	
@@ -79,26 +79,15 @@ func _physics_process(delta):
 		animated_sprite.play("run")
 		#Move towards player (left direction)
 		move_towards_player(player)
-
-func _turn():
-	# Define logic for turning the character here
-	# For example, flipping the sprite horizontally based on movement direction
-	if velocity.x < 0:
-		$AnimatedSprite2D.scale.x = -1
-		
-	else:
-		$AnimatedSprite2D.flip_h = false
 		
 func _move_character(_delta):# Add the gravity.
 	velocity.y += _gravity
 	
 	if _moving_left:
 		velocity.x = - _speed
-		$AnimatedSprite2D.scale.x = -1
 		
 	else: 
 		velocity.x = _speed
-		$AnimatedSprite2D.flip_h = true
 	
 	move_and_slide()
 

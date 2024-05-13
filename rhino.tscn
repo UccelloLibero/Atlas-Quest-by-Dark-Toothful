@@ -136,8 +136,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2y6j0"]
-radius = 21.095
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44aai"]
+size = Vector2(45, 27)
 
 [node name="Rhino" type="CharacterBody2D"]
 position = Vector2(560, -63)
@@ -149,5 +149,5 @@ animation = &"run"
 frame_progress = 0.553058
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5)
-shape = SubResource("CircleShape2D_2y6j0")
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_44aai")
