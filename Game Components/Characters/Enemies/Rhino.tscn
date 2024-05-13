@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://dagmdxj8liksd"]
+[gd_scene load_steps=34 format=3 uid="uid://dagmdxj8liksd"]
 
 [ext_resource type="Texture2D" uid="uid://q1aijm16vky2" path="res://Assets/Enemies/Rino/Hit (52x34).png" id="1_2mpia"]
+[ext_resource type="Script" path="res://Game Components/Levels/Rhino.gd" id="1_63tl4"]
 [ext_resource type="Texture2D" uid="uid://bk3d2bhp5gkuq" path="res://Assets/Enemies/Rino/Idle (52x34).png" id="1_pow5o"]
 [ext_resource type="Texture2D" uid="uid://d1ted5sx8b6s6" path="res://Assets/Enemies/Rino/Hit Wall (52x34).png" id="2_osjkl"]
 [ext_resource type="Texture2D" uid="uid://31vpw385fkqc" path="res://Assets/Enemies/Rino/Run (52x34).png" id="4_e3c1g"]
@@ -214,6 +215,7 @@ animations = [{
 size = Vector2(47, 29)
 
 [node name="Rhino" type="CharacterBody2D"]
+script = ExtResource("1_63tl4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wx7s8")
