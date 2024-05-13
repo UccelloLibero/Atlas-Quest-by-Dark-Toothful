@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbexx0cayjoc3"]
+
+[ext_resource type="Script" path="res://Game Components/Riddles/Riddle.gd" id="1_7e5rv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
+size = Vector2(77, 69)
+
+[node name="Riddle" type="Area2D"]
+script = ExtResource("1_7e5rv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28.5, 24.5)
+shape = SubResource("RectangleShape2D_u5l3w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 500.0
+offset_bottom = 300.0
+color = Color(0.298039, 0.298039, 0.301961, 0.407843)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 346.0
+offset_bottom = 25.0
+text = "Answer this riddle for me"
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 150.0
+offset_right = 280.0
+offset_bottom = 190.0
+text = "Option 1"
+
+[node name="Button2" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 280.0
+offset_bottom = 240.0
+text = "Option 2"
+
+[node name="Button3" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 250.0
+offset_right = 280.0
+offset_bottom = 290.0
+text = "Option 3"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

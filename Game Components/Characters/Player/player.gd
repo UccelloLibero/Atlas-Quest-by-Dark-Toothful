@@ -7,6 +7,9 @@ extends CharacterBody2D
 # Reference a timer node 
 @onready var reset_timer = $ResetTimer
 
+# Reference the AttackRayCast node
+@onready var attack_ray_cast = $AttackRayCast
+
 # Player movement variables
 @export var speed = 200
 @export var gravity = 800
@@ -38,6 +41,8 @@ func _ready():
 	$UI/Lives/Label.text = str(lives)
 	# Show correct number of biofacts value on load
 	$UI/Biofacts/Label.text = str(biofacts)
+	# Show curreny energy value on load
+	$UI/Energy/Label.text = str(energy)
 
 # Movement and physics 
 func _physics_process(delta):
@@ -70,6 +75,7 @@ func horizontal_movement():
 	var horizontal_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	# horizontal velocity which moves player left or right based on input
 	velocity.x = horizontal_input * speed
+
 	
 # Animations
 func player_animations():
