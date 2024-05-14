@@ -6,7 +6,7 @@ extends Area2D
 @onready var timer = $Timer
 
 # Exported variable to adjust the label visibility time
-@export var label_duration = 30.0
+@export var label_duration = 300
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

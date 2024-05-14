@@ -216,6 +216,7 @@ sprite_frames = SubResource("SpriteFrames_ta3fd")
 animation = &"shoot"
 
 [node name="VisionRayCast" type="RayCast2D" parent="."]
+scale = Vector2(2, 2)
 target_position = Vector2(50, 0)
 
 [node name="ActionTimer" type="Timer" parent="."]

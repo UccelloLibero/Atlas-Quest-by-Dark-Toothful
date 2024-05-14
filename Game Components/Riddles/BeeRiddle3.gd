@@ -25,25 +25,20 @@ func _on_body_entered(body):
 		button_option1.visible = true
 		button_option2.visible = true
 
-
-# You can choose which ever button you want to be correct 
-# Just make sure it includes the logic from the first button connected below
-# Connect buttons in Node > pressed() > Connect > Connect to script
-# Remeber to test and customize the layout of the text in the ColorRect
-
 func _on_button_pressed():
-	label_text.text = "Correct! 
-	Correct button should have this set up in their on_button_pressed"
-	timer.start(10)
+	label_text.text = "Correct! Three of their eyes act as light receptors,
+	helping them track the sun even on cloudy days. 
+	The other two eyes are made up of 6,900 facets each, 
+	helping them perceive movement."
+	timer.start(8)
 	await timer.timeout
 	queue_free()
 
 
 func _on_button_2_pressed():
-	label_text.text = "That is incorrect. 
-	The incorrect button should just update label to say incorrect."
+	label_text.text = "That is incorrect. Try again!"
 	
 
 func _on_button_3_pressed():
 	label_text.text = "That is incorect. 
-	The incorrect button should just update label to say incorrect."
+	They can see better than us! Try again!"

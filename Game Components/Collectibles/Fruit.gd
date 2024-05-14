@@ -16,22 +16,22 @@ var cherries_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFrui
 var pineapple_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFruit/pineapple.png")
 var straberry_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFruit/strawberry.png")
 
-@onready var fruit_texture = get_node("Sprite2D")
-@onready var collected_effect = get_node("Effect")
-@onready var collected_sound = get_node("AudioStreamPlayer2D")
+@onready var fruit_texture = $Sprite2D
+@onready var collected_effect = $Effect
+@onready var collected_sound = $AudioStreamPlayer2D
 
 # Remove energy from the game scene
 func _on_body_entered(body):
 	if body.name == "Player":
-		# Play collected effect
-		collected_effect.play()
+		## Play collected effect
+		#collected_effect.play()
 		# Play collected sound
 		collected_sound.play()
 		# Clear from screen
-		get_tree().queue_delete(self)
+		#get_tree().queue_delete(self)
 		# Add energy to player to update enery statistics
 		body.add_energy(fruit)
-
+		queue_free()
 
 # Allows to change sprite texture in editor
 func _process(delta):

@@ -1,4 +1,4 @@
-# Riddle
+# bee_riddle_1.gd
 extends Area2D
 
 @onready var riddle_display = $ColorRect
@@ -25,25 +25,22 @@ func _on_body_entered(body):
 		button_option1.visible = true
 		button_option2.visible = true
 
-
-# You can choose which ever button you want to be correct 
-# Just make sure it includes the logic from the first button connected below
-# Connect buttons in Node > pressed() > Connect > Connect to script
-# Remeber to test and customize the layout of the text in the ColorRect
-
 func _on_button_pressed():
-	label_text.text = "Correct! 
-	Correct button should have this set up in their on_button_pressed"
-	timer.start(10)
+	label_text.text = "That is incorect. 
+	They fly much faster!
+	Try again!"
+
+
+func _on_button_2_pressed():
+	label_text.text = "Correct! When foraging, worker bees can fly up to 
+	20mP or 32 KMP, beating their wings 200 times a second. This
+	creates the iconic 'bzzz' sound."
+	timer.start(7)
 	await timer.timeout
 	queue_free()
 
 
-func _on_button_2_pressed():
-	label_text.text = "That is incorrect. 
-	The incorrect button should just update label to say incorrect."
-	
-
 func _on_button_3_pressed():
 	label_text.text = "That is incorect. 
-	The incorrect button should just update label to say incorrect."
+	They are fast but not that fast!
+	Try again!"

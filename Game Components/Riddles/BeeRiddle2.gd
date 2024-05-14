@@ -1,4 +1,4 @@
-# Riddle
+# BeeRiddle2
 extends Area2D
 
 @onready var riddle_display = $ColorRect
@@ -25,25 +25,24 @@ func _on_body_entered(body):
 		button_option1.visible = true
 		button_option2.visible = true
 
-
-# You can choose which ever button you want to be correct 
-# Just make sure it includes the logic from the first button connected below
-# Connect buttons in Node > pressed() > Connect > Connect to script
-# Remeber to test and customize the layout of the text in the ColorRect
-
 func _on_button_pressed():
-	label_text.text = "Correct! 
-	Correct button should have this set up in their on_button_pressed"
-	timer.start(10)
-	await timer.timeout
-	queue_free()
-
+	label_text.text = "Yes, honey bees make honey by collecting
+	nectar from flowers and converting it into honey. The honey is made
+	when bees fan their wings causing evaporation and by that breaking
+	down the nectar into sumple sugars.
+	But that is not the answer we're looking for..."
 
 func _on_button_2_pressed():
-	label_text.text = "That is incorrect. 
-	The incorrect button should just update label to say incorrect."
+	label_text.text = "Yes, honey bees are considered some of the 
+	hardest working insects, with some bees working up to 12 
+	hours a day, from dawn to dusk.
+	But that is not the naswer we are looking for."
 	
 
 func _on_button_3_pressed():
-	label_text.text = "That is incorect. 
-	The incorrect button should just update label to say incorrect."
+	label_text.text = "Correct! Bees pollinate our wild trees and wild flowers,
+	which then supports other insects, which then supports birds, bats, mammals
+	and everything up the food chain with food and shelter."
+	timer.start(8)
+	await timer.timeout
+	queue_free()

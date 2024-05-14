@@ -11,9 +11,9 @@ extends CharacterBody2D
 @onready var attack_ray_cast = $AttackRayCast
 
 # Player movement variables
-@export var speed = 200
+@export var speed : float = 200.0
 @export var gravity = 800
-@export var jump_height = -300
+@export var jump_height : float = -250.0
 
 # Custom signals
 signal update_lives(lives, max_lives)
@@ -23,7 +23,7 @@ signal update_energy(energy)
 # Life statistics
 var max_lives = 3
 var lives = 3
-var is_hurt = false
+#var is_hurt = false
 
 # Biofact statistics
 var biofacts = int()
@@ -132,13 +132,14 @@ func _on_animated_sprite_2d_animation_finished():
 	Global.is_attacking = false
 	Global.is_climbing = false
 	set_physics_process(true)
-	is_hurt = false
+	#is_hurt = false
 
 	
 # Handle death when player enters death zone water, sand, falls into abyss
 func _on_death_zone_body_entered(body):
 	if body == self:
-		reset_timer.start()
+		get_tree().reload_current_scene()
+		#reset_timer.start()
 
 # Timer timeout signal handler to reset player to begging of level after falling to abyss
 func _on_reset_timer_timeout():
@@ -158,7 +159,11 @@ func take_damage():
 		$AnimatedSprite2D.play("damage")
 		# Allow animation "damage" to play
 		set_physics_process(false)
-		is_hurt = true
+		#is_hurt = true
+	if lives == 0:
+		$AnimatedSprite2D.play("die")
+		#await $AnimatedSprite2D.animation_finished
+		get_tree().reload_current_scene()
 		# Decrese energy
 		if energy >= 5:
 			energy -= 5

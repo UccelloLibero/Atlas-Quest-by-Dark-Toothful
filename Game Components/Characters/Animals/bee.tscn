@@ -70,7 +70,10 @@ shape = SubResource("RectangleShape2D_106fy")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Well hello there. I am working. "
+theme_override_colors/font_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+text = "Bees communicate using a dance called 
+\"wiggle dance\". The angle and length of 
+the dance indicate the locaiton of food."
 
 [node name="Timer" type="Timer" parent="."]
 
