@@ -1,3 +1,4 @@
+#Generic Enemy.gd
 extends CharacterBody2D
 
 const SPEED = 50.0
@@ -5,6 +6,8 @@ const SPEED = 50.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var action_timer = $ActionTimer  # Reference to the Timer node
+@onready var delay_timer = $DelayTimer
 
 @export_enum(
 	"left",
@@ -26,6 +29,7 @@ var _hit_to_die = 3
 var _has_hits = 0
 var die = false
 var _stop_detection = false
+var facing_left = true  # Default facing direction
 
 #A variable that tracks the player's proximity to the enemy
 var player_in_range = false
@@ -80,6 +84,15 @@ func _physics_process(delta):
 		#Move towards player (left direction)
 		move_towards_player(player)
 		
+# Function to face the player based on their position
+func face_player(body):
+	if body.name == "Player" and body.global_position.x < global_position.x and not facing_left:
+		scale.x = -abs(scale.x)
+		facing_left = false
+	elif body.global_position.x > global_position.x and facing_left:
+		scale.x = abs(scale.x)
+		facing_left = true
+
 func _move_character(_delta):# Add the gravity.
 	velocity.y += _gravity
 	
