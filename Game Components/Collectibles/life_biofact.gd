@@ -35,6 +35,7 @@ func _process(delta):
 			$AnimatedSprite2D.play("life")
 		elif collect == Global.LifeBiofact.BIOFACT:
 			$AnimatedSprite2D.play("biofact")
+
 			
 
 # Change sprites texture in game scene

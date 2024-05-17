@@ -1,7 +1,7 @@
 # When you add at the top of a script the tool keyword, 
 # it will be executed not only during the game, 
 # but also in the editor.
-@tool
+#@tool
 
 # Energy.gd
 extends Area2D

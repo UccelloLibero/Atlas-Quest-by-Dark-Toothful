@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://n43uuvdeg7fr"]
+
+[ext_resource type="Script" path="res://Game Components/Collectibles/ElephantFact3.gd" id="1_welts"]
+[ext_resource type="Texture2D" uid="uid://b33noldn3f0s0" path="res://Assets/Keys etc/Full Sheet.png" id="2_myawm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i85qp"]
+atlas = ExtResource("2_myawm")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnldj"]
+atlas = ExtResource("2_myawm")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kfdx"]
+atlas = ExtResource("2_myawm")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6wm3"]
+atlas = ExtResource("2_myawm")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4iol"]
+atlas = ExtResource("2_myawm")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2iel"]
+atlas = ExtResource("2_myawm")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sibmt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i85qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnldj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kfdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6wm3")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4iol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2iel")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_homqh"]
+size = Vector2(16, 15)
+
+[node name="ElephantFact3" type="Area2D"]
+script = ExtResource("1_welts")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sibmt")
+animation = &"collected"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_homqh")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -65.0
+offset_right = 137.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"TooltipLabel"
+text = "Sumatran elephants are protected under Indonesian law."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

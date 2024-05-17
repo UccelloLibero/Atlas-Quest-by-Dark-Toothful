@@ -21,6 +21,7 @@ extends CharacterBody2D
 @export var gravity = 980
 @export var jump_height : float = -215.0
 
+
 # Custom signals
 signal update_lives(lives, max_lives)
 signal update_biofacts(biofacts)
@@ -130,7 +131,7 @@ func _input(event):
 			Global.is_jumping = true
 	# Reset gravity		
 	else:
-		gravity = 200
+		gravity = 500
 		Global.is_climbing = false
 		Global.is_jumping = false
 		
@@ -246,3 +247,7 @@ func add_energy(fruit):
 
 	
 	
+
+
+func _on_change_scene_body_entered(body):
+	pass # Replace with function body.
