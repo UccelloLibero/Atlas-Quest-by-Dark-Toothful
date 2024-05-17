@@ -29,9 +29,9 @@ func _on_body_entered(body):
 func _process(delta):
 	if Engine.is_editor_hint():
 		if collect == Global.LifeBiofact.LIFE:
-			sprite_texture.set_texture(life_texture)
+			$Sprite2D.play("life")
 		elif collect == Global.LifeBiofact.BIOFACT:
-			sprite_texture.set_texture(biofact_texture)
+			$Sprite2D.play("biofact")
 			
 
 # Change sprites texture in game scene

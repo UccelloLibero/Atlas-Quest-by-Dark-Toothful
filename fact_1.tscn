@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://de3n4nio3fa6f"]
+
+[ext_resource type="Texture2D" uid="uid://b33noldn3f0s0" path="res://Assets/Keys etc/Full Sheet.png" id="1_jcm5c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jn0h"]
+atlas = ExtResource("1_jcm5c")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_060nr"]
+atlas = ExtResource("1_jcm5c")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyxcg"]
+atlas = ExtResource("1_jcm5c")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eikx5"]
+atlas = ExtResource("1_jcm5c")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh5lg"]
+atlas = ExtResource("1_jcm5c")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2fhr"]
+atlas = ExtResource("1_jcm5c")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tb8r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jn0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_060nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyxcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eikx5")
+}],
+"loop": false,
+"name": &"fact read",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh5lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2fhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh5lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2fhr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex3qc"]
+
+[node name="Fact 1" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(333, -70)
+sprite_frames = SubResource("SpriteFrames_tb8r2")
+animation = &"fact read"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(333, -71)
+shape = SubResource("RectangleShape2D_ex3qc")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
