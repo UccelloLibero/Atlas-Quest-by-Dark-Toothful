@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmq0p0lb57pq8"]
+[gd_scene load_steps=12 format=3 uid="uid://dmq0p0lb57pq8"]
 
 [ext_resource type="Script" path="res://Game Components/Characters/Animals/Bee.gd" id="1_xo5qa"]
 [ext_resource type="Texture2D" uid="uid://b40k7r1unk6ip" path="res://Assets/Enemies/Bee/Idle (36x34).png" id="2_ho3y7"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="3_61088"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e165b"]
 atlas = ExtResource("2_ho3y7")
@@ -68,12 +69,16 @@ position = Vector2(-0.25, 7.5)
 shape = SubResource("RectangleShape2D_106fy")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
-text = "Bees communicate using a dance called 
-\"wiggle dance\". The angle and length of 
-the dance indicate the locaiton of food."
+offset_right = 242.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_61088")
+text = "Bees communicate using 
+a dance called 
+\"wiggle dance\". 
+The angle and length of 
+the dance indicate
+ the locaiton of food."
 
 [node name="Timer" type="Timer" parent="."]
 

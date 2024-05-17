@@ -1,4 +1,4 @@
-# Riddle
+# BeeRiddle3
 extends Area2D
 
 @onready var riddle_display = $ColorRect
@@ -30,7 +30,7 @@ func _on_button_pressed():
 	helping them track the sun even on cloudy days. 
 	The other two eyes are made up of 6,900 facets each, 
 	helping them perceive movement."
-	timer.start(8)
+	timer.start(5)
 	await timer.timeout
 	queue_free()
 

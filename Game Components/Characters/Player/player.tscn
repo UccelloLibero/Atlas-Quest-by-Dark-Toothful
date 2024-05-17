@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b2uyic5t8hh12"]
+[gd_scene load_steps=48 format=3 uid="uid://b2uyic5t8hh12"]
 
 [ext_resource type="Script" path="res://Game Components/Characters/Player/player.gd" id="1_71nt8"]
 [ext_resource type="Texture2D" uid="uid://dq2ook4w53f1i" path="res://Assets/Adventurer/Individual Sprites/adventurer-attack2-00.png" id="2_himyk"]
@@ -39,8 +39,9 @@
 [ext_resource type="Texture2D" uid="uid://ca6pebskrp6uk" path="res://Assets/Adventurer/Individual Sprites/adventurer-run-04.png" id="29_icv1o"]
 [ext_resource type="Texture2D" uid="uid://bkud7b80ljwyi" path="res://Assets/Adventurer/Individual Sprites/adventurer-run-05.png" id="30_lgggo"]
 [ext_resource type="Script" path="res://Game Components/UI/LivesBiofactsEnergy/Lives.gd" id="39_ytdgi"]
-[ext_resource type="Texture2D" uid="uid://c7mf0iyhcueah" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/sprite_4.png" id="40_5pgn4"]
+[ext_resource type="Texture2D" uid="uid://c7mf0iyhcueah" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart1.png" id="40_dpqdy"]
 [ext_resource type="Script" path="res://Game Components/UI/LivesBiofactsEnergy/Biofacts.gd" id="41_mofrl"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="41_n8vxc"]
 [ext_resource type="Texture2D" uid="uid://dfbsrki06huod" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/08.png" id="42_1sd2u"]
 [ext_resource type="Script" path="res://Game Components/UI/LivesBiofactsEnergy/Energy.gd" id="43_2i7ew"]
 [ext_resource type="Texture2D" uid="uid://cdn30ucsmg8qi" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/UIapple1.png" id="44_lqpwd"]
@@ -227,7 +228,7 @@ script = ExtResource("39_ytdgi")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/Lives"]
 position = Vector2(30, 25)
-texture = ExtResource("40_5pgn4")
+texture = ExtResource("40_dpqdy")
 
 [node name="Label" type="Label" parent="UI/Lives"]
 layout_mode = 1
@@ -241,6 +242,7 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("41_n8vxc")
 text = "0"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -268,6 +270,7 @@ offset_top = -11.5
 offset_right = 40.0
 offset_bottom = 11.5
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("41_n8vxc")
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -296,6 +299,7 @@ offset_top = -11.5
 offset_right = 40.0
 offset_bottom = 11.5
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("41_n8vxc")
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -304,5 +308,14 @@ metadata/_edit_use_anchors_ = true
 [node name="AttackRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(50, 0)
 collide_with_areas = true
+
+[node name="EnergyWarningLabel" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 45.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("41_n8vxc")
+
+[node name="DeathZoneSound" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

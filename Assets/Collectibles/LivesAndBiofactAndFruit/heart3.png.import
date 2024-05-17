@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxcuvaooi3vkm"
-path="res://.godot/imported/strawberry.png-f2139edb75954fc14aafc98a59d08c21.ctex"
+uid="uid://cffk4lhwmxyn1"
+path="res://.godot/imported/heart3.png-fcb0ebb542994b9a576594904428d989.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/strawberry.png"
-dest_files=["res://.godot/imported/strawberry.png-f2139edb75954fc14aafc98a59d08c21.ctex"]
+source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart3.png"
+dest_files=["res://.godot/imported/heart3.png-fcb0ebb542994b9a576594904428d989.ctex"]
 
 [params]
 

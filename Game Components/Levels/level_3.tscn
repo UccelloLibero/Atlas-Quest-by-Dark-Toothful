@@ -1,5 +1,6 @@
-[gd_scene load_steps=113 format=3 uid="uid://ba6uscpvdgppn"]
+[gd_scene load_steps=114 format=3 uid="uid://ba6uscpvdgppn"]
 
+[ext_resource type="Script" path="res://Game Components/Levels/level_3.gd" id="1_gpwbb"]
 [ext_resource type="Texture2D" uid="uid://dexasjncjmev4" path="res://Assets/Pixel Art Adventure 1/Background/Yellow.png" id="1_nj502"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_ffvfs"]
 [ext_resource type="Texture2D" uid="uid://c5q2tap3mioum" path="res://Assets/Pixel Art Adventure 1/Terrain/Terrain (16x16).png" id="3_bqidb"]
@@ -23,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://boec8lc7ivk4r" path="res://Assets/Pixel Art Adventure 1/Traps/Spikes/Nature/Tiles/5.png" id="20_gs5ns"]
 [ext_resource type="Texture2D" uid="uid://b63r1cnvo2ddq" path="res://Assets/Pixel Art Adventure 1/Traps/Spikes/Nature/Tiles/6.png" id="21_f3hlw"]
 [ext_resource type="Texture2D" uid="uid://xm882aso7e3" path="res://Assets/Pixel Art Adventure 1/Traps/Spikes/Nature/Tiles/7.png" id="22_1ru1y"]
-[ext_resource type="PackedScene" uid="uid://dagmdxj8liksd" path="res://Game Components/Characters/Enemies/Rhino.tscn" id="24_exqat"]
+[ext_resource type="PackedScene" uid="uid://7yis8p27pc4e" path="res://Game Components/Characters/Enemies/Rhino.tscn" id="24_exqat"]
 [ext_resource type="PackedScene" uid="uid://bt6keukg2ul6m" path="res://Game Components/Characters/Enemies/generic_enemy.tscn" id="25_c584y"]
 [ext_resource type="PackedScene" uid="uid://cwc1xm5nvilu7" path="res://Game Components/Collectibles/apple.tscn" id="26_nmvum"]
 [ext_resource type="Script" path="res://Game Components/Collectibles/Apple.gd" id="29_86xc6"]
@@ -9100,6 +9101,7 @@ animations = [{
 size = Vector2(34, 33.5)
 
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_gpwbb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false

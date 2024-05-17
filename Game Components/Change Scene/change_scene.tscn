@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://y2s4g3t3e06d"]
+[gd_scene load_steps=10 format=3 uid="uid://y2s4g3t3e06d"]
 
 [ext_resource type="Texture2D" uid="uid://bd2c5uo2rwepb" path="res://Assets/Scene Change Door/portalRings2.png" id="1_3a260"]
 [ext_resource type="Script" path="res://Game Components/Change Scene/change_scene.gd" id="1_l0q22"]
-[ext_resource type="AudioStream" uid="uid://dyphx0kg2av1d" path="res://Assets/Sounds/pickup_life.ogg" id="2_glw1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfgma"]
 atlas = ExtResource("1_3a260")
@@ -62,5 +61,6 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_kdwfo")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_glw1g")
 pitch_scale = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

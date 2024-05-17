@@ -9,55 +9,63 @@ extends Area2D
 # Energy enum
 @export var fruit : Global.Energy
 
-# Texture assest for fruit
-var apple_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFruit/apple.png")
-var bananas_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFruit/banana.png")
-var cherries_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFruit/cherry.png")
-var pineapple_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFruit/pineapple.png")
-var straberry_texture = preload("res://Assets/Collectibles/LivesAndBiofactAndFruit/strawberry.png")
+# Sound
+var collected = preload("res://Assets/Sounds/energypickup.mp3")
 
-@onready var fruit_texture = $Sprite2D
+#@onready var fruit_texture = $Sprite2D
 @onready var collected_effect = $Effect
 @onready var collected_sound = $AudioStreamPlayer2D
+
+@onready var fruit_texture = $AnimatedSprite2D
+
+
+
+func play_sound():
+	collected_sound.stream = collected
+	collected_sound.play()
+	
 
 # Remove energy from the game scene
 func _on_body_entered(body):
 	if body.name == "Player":
-		## Play collected effect
-		#collected_effect.play()
-		# Play collected sound
-		collected_sound.play()
-		# Clear from screen
-		#get_tree().queue_delete(self)
-		# Add energy to player to update enery statistics
-		body.add_energy(fruit)
-		queue_free()
+		play_sound()
+		$Effect.play("collected")
+		await collected_effect.animation_finished
 
 # Allows to change sprite texture in editor
 func _process(delta):
 	if Engine.is_editor_hint():
 		if fruit == Global.Energy.APPLE:
-			fruit_texture.set_texture(apple_texture)
+			$AnimatedSprite2D.play("apple")
 		elif fruit == Global.Energy.BANANAS:
-			fruit_texture.set_texture(bananas_texture)
+			$AnimatedSprite2D.play("bananas")
 		elif fruit == Global.Energy.CHERRIES:
-			fruit_texture.set_texture(cherries_texture)
+			$AnimatedSprite2D.play("cherries")
 		elif fruit == Global.Energy.PINEAPPLE:
-			fruit_texture.set_texture(pineapple_texture)
+			$AnimatedSprite2D.play("pineapple")
 		elif fruit == Global.Energy.STRAWBERRY:
-			fruit_texture.set_texture(straberry_texture)
+			$AnimatedSprite2D.play("strawberry")
 		
 		
 
 # Change sprite texture in game scene
 func _ready():
 	if fruit == Global.Energy.APPLE:
-		fruit_texture.set_texture(apple_texture)
+		$AnimatedSprite2D.play("apple")
 	elif fruit == Global.Energy.BANANAS:
-		fruit_texture.set_texture(bananas_texture)
+		$AnimatedSprite2D.play("bananas")
 	elif fruit == Global.Energy.CHERRIES:
-		fruit_texture.set_texture(cherries_texture)
+		$AnimatedSprite2D.play("cherries")
 	elif fruit == Global.Energy.PINEAPPLE:
-		fruit_texture.set_texture(pineapple_texture)
+		$AnimatedSprite2D.play("pineapple")
 	elif fruit == Global.Energy.STRAWBERRY:
-		fruit_texture.set_texture(straberry_texture)
+		$AnimatedSprite2D.play("strawberry")
+
+
+func _on_body_exited(body):
+	#get_tree().queue_delete(self)
+	queue_free()
+	# Add energy to energy UI
+	body.add_energy(fruit)
+
+	

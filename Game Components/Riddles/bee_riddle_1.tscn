@@ -1,21 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://4unxt1fu8s4m"]
+[gd_scene load_steps=4 format=3 uid="uid://4unxt1fu8s4m"]
 
-[ext_resource type="Script" path="res://Game Components/Riddles/bee_riddle_1.gd" id="1_8dcct"]
+[ext_resource type="Script" path="res://Game Components/Riddles/BeeRiddle1.gd" id="1_8dcct"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_7qdp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
-size = Vector2(77, 69)
+size = Vector2(157, 108)
 
 [node name="BeeRiddle1" type="Area2D"]
 script = ExtResource("1_8dcct")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(28.5, 24.5)
+position = Vector2(68.5, 44)
 shape = SubResource("RectangleShape2D_u5l3w")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 500.0
-offset_bottom = 300.0
-color = Color(0.298039, 0.298039, 0.301961, 0.407843)
+offset_top = 2.0
+offset_right = 478.0
+offset_bottom = 189.0
+color = Color(0.215686, 0.309804, 0.184314, 0.407843)
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_direction = 2
@@ -24,40 +26,15 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 216.0
 offset_bottom = 45.0
-text = "How fast do bees fly?"
-
-[node name="Button" type="Button" parent="ColorRect"]
-custom_minimum_size = Vector2(140, 40)
-layout_mode = 0
-offset_left = 20.0
-offset_top = 150.0
-offset_right = 160.0
-offset_bottom = 190.0
-text = "2mph / 3kmh"
-
-[node name="Button2" type="Button" parent="ColorRect"]
-custom_minimum_size = Vector2(140, 40)
-layout_mode = 0
-offset_left = 20.0
-offset_top = 200.0
-offset_right = 160.0
-offset_bottom = 240.0
-text = "20 mph / 32 kmh"
-
-[node name="Button3" type="Button" parent="ColorRect"]
-custom_minimum_size = Vector2(140, 40)
-layout_mode = 0
-offset_left = 20.0
-offset_top = 250.0
-offset_right = 160.0
-offset_bottom = 290.0
-text = "50mph / 80kmh"
+theme_override_fonts/font = ExtResource("2_7qdp4")
+text = "When foraging, worker bees can fly
+ up to 20mph or 32kmh, 
+beating their wings 200 times a second.
+This creates the iconic 'bzzz' sound."
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="ColorRect/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

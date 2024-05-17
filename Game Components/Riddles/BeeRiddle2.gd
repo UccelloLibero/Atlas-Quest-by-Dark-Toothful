@@ -29,7 +29,7 @@ func _on_button_pressed():
 	label_text.text = "Yes, honey bees make honey by collecting
 	nectar from flowers and converting it into honey. The honey is made
 	when bees fan their wings causing evaporation and by that breaking
-	down the nectar into sumple sugars.
+	down the nectar into simple sugars.
 	But that is not the answer we're looking for..."
 
 func _on_button_2_pressed():
@@ -43,6 +43,6 @@ func _on_button_3_pressed():
 	label_text.text = "Correct! Bees pollinate our wild trees and wild flowers,
 	which then supports other insects, which then supports birds, bats, mammals
 	and everything up the food chain with food and shelter."
-	timer.start(8)
+	timer.start(5)
 	await timer.timeout
 	queue_free()

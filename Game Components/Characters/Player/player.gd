@@ -10,15 +10,24 @@ extends CharacterBody2D
 # Reference the AttackRayCast node
 @onready var attack_ray_cast = $AttackRayCast
 
+# Reference the energy label
+@onready var energy_warning_label = $EnergyWarningLabel
+
+# Reference Death zone dying sound in tree
+@onready var death_zone_sound_audio = $DeathZoneSound
+
 # Player movement variables
 @export var speed : float = 200.0
-@export var gravity = 800
-@export var jump_height : float = -250.0
+@export var gravity = 980
+@export var jump_height : float = -215.0
 
 # Custom signals
 signal update_lives(lives, max_lives)
 signal update_biofacts(biofacts)
 signal update_energy(energy)
+
+# Death zone sound preload
+var death_zone_sound = preload("res://Assets/Sounds/deathzone.mp3")
 
 # Life statistics
 var max_lives = 3
@@ -63,8 +72,8 @@ func _physics_process(delta):
 		# If its valid
 		if target != null:
 			# Remove poacher
-			if target.name == "Poacher" and Input.is_action_pressed("ui_attack"):
-				target.queue_free()
+			if target.name == "Poacher":
+				target.play("die")
 				
 				
 
@@ -138,6 +147,9 @@ func _on_animated_sprite_2d_animation_finished():
 # Handle death when player enters death zone water, sand, falls into abyss
 func _on_death_zone_body_entered(body):
 	if body == self:
+		death_zone_sound_audio.stream = death_zone_sound
+		death_zone_sound_audio.play()
+		await death_zone_sound_audio.finished
 		get_tree().reload_current_scene()
 		#reset_timer.start()
 
@@ -159,16 +171,45 @@ func take_damage():
 		$AnimatedSprite2D.play("damage")
 		# Allow animation "damage" to play
 		set_physics_process(false)
+		
+		
 		#is_hurt = true
 	if lives == 0:
 		$AnimatedSprite2D.play("die")
 		#await $AnimatedSprite2D.animation_finished
 		get_tree().reload_current_scene()
-		# Decrese energy
-		if energy >= 5:
-			energy -= 5
-			update_energy.emit(energy)
 		
+		
+	# Add flashing effect to show damage 
+	$AnimatedSprite2D.modulate = Color.DARK_RED
+	await create_flash_timer()
+	$AnimatedSprite2D.modulate = Color.WHITE
+
+# Reduce energy on impace with large animals
+func reduce_energy():
+	# Decrese energy
+	if energy >= 5:
+		energy -= 5
+		update_energy.emit(energy)
+		
+	if energy == 0 and lives == 0:
+		update_energy.emit(energy)
+		$AnimatedSprite2D.play("die")
+		get_parent().get_tree().reload_current_scene()
+	elif energy == 0 and lives > 0:
+		#energy_warning_label.text = "You are running low on energy! Eat more fruit"
+		update_energy.emit(energy)
+
+
+	# Add flashing effect to show damage 
+	$AnimatedSprite2D.modulate = Color.CRIMSON
+	await get_tree().create_timer(0.2).timeout
+	$AnimatedSprite2D.modulate = Color.WHITE
+	
+func create_flash_timer():
+	if get_tree():
+		await get_tree().create_timer(0.2).timeout
+	
 
 # Adds life and biofacts to the player and updates lives/biofact count
 func add_life_biofact(collect):
