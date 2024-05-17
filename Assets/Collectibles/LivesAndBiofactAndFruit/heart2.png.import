@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ysyfwblshkk0"
-path="res://.godot/imported/pineapple.png-0c7db0d23ca1f2ccdb89bc0a2bd6fcb1.ctex"
+uid="uid://dmg0o7cp7lk07"
+path="res://.godot/imported/heart2.png-feb3f1ffd657b68d4b955270ede587b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/pineapple.png"
-dest_files=["res://.godot/imported/pineapple.png-0c7db0d23ca1f2ccdb89bc0a2bd6fcb1.ctex"]
+source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart2.png"
+dest_files=["res://.godot/imported/heart2.png-feb3f1ffd657b68d4b955270ede587b0.ctex"]
 
 [params]
 

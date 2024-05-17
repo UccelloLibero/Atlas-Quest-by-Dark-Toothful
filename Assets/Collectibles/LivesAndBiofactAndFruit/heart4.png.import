@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://24xadm3owb"
-path="res://.godot/imported/cherry.png-219d53377bc158d4c501f990deacfb8f.ctex"
+uid="uid://closu8rrqtwo1"
+path="res://.godot/imported/heart4.png-87b2a3762559e7f0674ad071ab6fa70b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/cherry.png"
-dest_files=["res://.godot/imported/cherry.png-219d53377bc158d4c501f990deacfb8f.ctex"]
+source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart4.png"
+dest_files=["res://.godot/imported/heart4.png-87b2a3762559e7f0674ad071ab6fa70b.ctex"]
 
 [params]
 

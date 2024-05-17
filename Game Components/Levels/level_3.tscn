@@ -1,5 +1,4 @@
 [gd_scene load_steps=97 format=3 uid="uid://ba6uscpvdgppn"]
-
 [ext_resource type="Script" path="res://Game Components/Levels/level_3.gd" id="1_70tcs"]
 [ext_resource type="Texture2D" uid="uid://dexasjncjmev4" path="res://Assets/Pixel Art Adventure 1/Background/Yellow.png" id="1_nj502"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_ffvfs"]

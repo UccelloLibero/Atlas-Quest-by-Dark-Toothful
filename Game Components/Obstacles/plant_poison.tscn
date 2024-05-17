@@ -27,9 +27,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0ei25")
 }],
-"loop": true,
+"loop": false,
 "name": &"burst",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,

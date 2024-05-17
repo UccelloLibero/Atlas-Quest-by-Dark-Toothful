@@ -1,15 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxc8c7c2kgbe0"]
+[gd_scene load_steps=4 format=3 uid="uid://cxc8c7c2kgbe0"]
 
 [ext_resource type="Script" path="res://Game Components/Riddles/BeeRiddle2.gd" id="1_fxfei"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_dl2yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
-size = Vector2(77, 69)
+size = Vector2(233, 166)
 
 [node name="BeeRiddle2" type="Area2D"]
 script = ExtResource("1_fxfei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(28.5, 24.5)
+position = Vector2(106.5, 73)
 shape = SubResource("RectangleShape2D_u5l3w")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -23,6 +24,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 216.0
 offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_dl2yp")
 text = "Why are bees important?"
 
 [node name="Button" type="Button" parent="ColorRect"]
@@ -31,6 +33,7 @@ offset_left = 20.0
 offset_top = 200.0
 offset_right = 160.0
 offset_bottom = 240.0
+theme_override_fonts/font = ExtResource("2_dl2yp")
 text = "Honey"
 
 [node name="Button2" type="Button" parent="ColorRect"]
@@ -39,6 +42,7 @@ offset_left = 20.0
 offset_top = 250.0
 offset_right = 160.0
 offset_bottom = 290.0
+theme_override_fonts/font = ExtResource("2_dl2yp")
 text = "Hard workers"
 
 [node name="Button3" type="Button" parent="ColorRect"]
@@ -47,6 +51,7 @@ offset_left = 20.0
 offset_top = 300.0
 offset_right = 160.0
 offset_bottom = 340.0
+theme_override_fonts/font = ExtResource("2_dl2yp")
 text = "Pollinators"
 
 [node name="Timer" type="Timer" parent="."]

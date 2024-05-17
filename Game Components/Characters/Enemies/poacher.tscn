@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://duv2byr5amnd2"]
+[gd_scene load_steps=34 format=3 uid="uid://duv2byr5amnd2"]
 
 [ext_resource type="Texture2D" uid="uid://cmrwn71pictwi" path="res://Assets/Poachers/CHARACTER_SPRITES/Black/Gunner_Black_Death.png" id="1_5x7ip"]
 [ext_resource type="Script" path="res://Game Components/Characters/Enemies/Poacher.gd" id="1_nh3xk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cak0poovj8m4u" path="res://Assets/Poachers/EXTRAS/BulletStream.png" id="7_nqb17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefmc"]
+size = Vector2(1, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvn14"]
 atlas = ExtResource("1_5x7ip")
@@ -201,15 +202,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3qcu"]
+
 [node name="Poacher" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_nh3xk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -0.5)
 shape = SubResource("RectangleShape2D_tefmc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_i5qml")
-animation = &"shoot"
+animation = &"die"
 
 [node name="PoacherEffect" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ta3fd")
@@ -223,4 +229,10 @@ target_position = Vector2(50, 0)
 
 [node name="DelayTimer" type="Timer" parent="."]
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_x3qcu")
+
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

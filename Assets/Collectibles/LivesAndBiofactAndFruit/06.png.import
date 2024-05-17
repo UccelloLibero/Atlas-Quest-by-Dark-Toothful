@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7mf0iyhcueah"
-path="res://.godot/imported/sprite_4.png-6d582dd71d9a469f58c6b784ee1a8fdb.ctex"
+uid="uid://c2udb6w1u4t3w"
+path="res://.godot/imported/06.png-e93ccf378f884a1f0be4351a7434bf2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/sprite_4.png"
-dest_files=["res://.godot/imported/sprite_4.png-6d582dd71d9a469f58c6b784ee1a8fdb.ctex"]
+source_file="res://Assets/Collectibles/LivesAndBiofactAndFruit/06.png"
+dest_files=["res://.godot/imported/06.png-e93ccf378f884a1f0be4351a7434bf2b.ctex"]
 
 [params]
 
