@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://7yis8p27pc4e"]
 
 [ext_resource type="Texture2D" uid="uid://q1aijm16vky2" path="res://Assets/Enemies/Rino/Hit (52x34).png" id="1_2mpia"]
-[ext_resource type="Script" path="res://Game Components/Levels/Rhino.gd" id="1_63tl4"]
+[ext_resource type="Script" path="res://Game Components/Characters/Enemies/Rhino1.gd" id="1_63tl4"]
 [ext_resource type="Texture2D" uid="uid://bk3d2bhp5gkuq" path="res://Assets/Enemies/Rino/Idle (52x34).png" id="1_pow5o"]
 [ext_resource type="Texture2D" uid="uid://d1ted5sx8b6s6" path="res://Assets/Enemies/Rino/Hit Wall (52x34).png" id="2_osjkl"]
 [ext_resource type="Texture2D" uid="uid://31vpw385fkqc" path="res://Assets/Enemies/Rino/Run (52x34).png" id="4_e3c1g"]
@@ -215,15 +215,14 @@ animations = [{
 size = Vector2(41, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7e6n"]
-size = Vector2(65, 28)
+size = Vector2(48, 28)
 
 [node name="Rhino" type="CharacterBody2D"]
 script = ExtResource("1_63tl4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wx7s8")
-animation = &"hit"
-frame_progress = 0.375457
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 6.5)
@@ -232,7 +231,7 @@ shape = SubResource("RectangleShape2D_1wtqt")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 4)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_d7e6n")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

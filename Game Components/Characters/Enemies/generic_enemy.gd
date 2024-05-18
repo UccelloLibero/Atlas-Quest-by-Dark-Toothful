@@ -1,28 +1,61 @@
-extends "res://Game Components/Characters/Enemies/Poacher.gd"
+#generic_enemy.gd
+extends CharacterBody2D
 
+const SPEED = 50.0
+const IDLE_ANIMATION = "idle"
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var animated_sprite = $AnimatedSprite2D
 
+# Declare whether character is dead or alive
+var _died = false
+
+#A variable that tracks the player's proximity to the enemy
+var player_in_range = false
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	velocity.y += gravity * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	# Get a reference to the player node
+	var player = get_parent().get_node("Player") #Adjust path to player
+	
+	#Check if the player exists and is in range
+	if player:
+		var distance_to_player = global_position.distance_to(player.global_position) 
+		if distance_to_player < 120: #Adjust as necessary
+			player_in_range = true
+		else:
+			player_in_range = false
+	
+	#Play running animation based on player's proximity
+	if player_in_range:
+		#Run toward player
+		animated_sprite.play("run")
+		#Move towards player (left direction)
+		move_towards_player(player)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity = Vector2.ZERO
+		animated_sprite.play(IDLE_ANIMATION)
+		
 	move_and_slide()
+
+
+#Function to get enemy to move to the left
+func move_towards_player(player):
+	var direction = (player.global_position - global_position).normalized()
+	velocity = direction * SPEED
+	velocity.y += gravity #enemy only moves left and right
+	
+	if direction.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
+	
+func _ready():
+	animated_sprite.play(IDLE_ANIMATION)
+
+func _on_area_2d_body_entered(body):
+	if body.name == "Player":
+		animated_sprite.play("die")
+		body.take_damage()

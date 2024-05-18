@@ -135,3 +135,8 @@ func move_towards_player(player):
 
 func reset():
 	die = false
+	
+func _on_area_2d_body_entered(body):
+	if body.name == "Player":
+		animated_sprite.play("die")
+		body.take_damage()

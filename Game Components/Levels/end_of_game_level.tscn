@@ -12,17 +12,25 @@ texture = ExtResource("2_d7dab")
 
 [node name="PlayAgain" type="Button" parent="."]
 offset_left = 250.0
-offset_top = 300.0
+offset_top = 210.0
 offset_right = 450.0
-offset_bottom = 400.0
+offset_bottom = 310.0
 text = "Play Again"
 
 [node name="GameOver" type="Button" parent="."]
 offset_left = 750.0
-offset_top = 300.0
+offset_top = 210.0
 offset_right = 950.0
-offset_bottom = 400.0
+offset_bottom = 310.0
 text = "Game Over"
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 500.0
+offset_top = 472.0
+offset_right = 700.0
+offset_bottom = 572.0
+text = "Credits"
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GameOver" to="." method="_on_game_over_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

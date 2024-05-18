@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs6cpmw5p3dcw"]
+[gd_scene load_steps=12 format=3 uid="uid://bs6cpmw5p3dcw"]
 
 [ext_resource type="Script" path="res://Game Components/Collectibles/ElephantFact2.gd" id="1_pmcr4"]
 [ext_resource type="Texture2D" uid="uid://b33noldn3f0s0" path="res://Assets/Keys etc/Full Sheet.png" id="2_v2g46"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="3_kdqjo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i85qp"]
 atlas = ExtResource("2_v2g46")
@@ -89,12 +90,16 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -46.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"TooltipLabel"
+theme_override_fonts/font = ExtResource("3_kdqjo")
 text = "Sumatran elephants feed on a variety of plants and deposit seeds wherever they go, contributing to a healthy forest ecosystem."
 horizontal_alignment = 1
 autowrap_mode = 3
