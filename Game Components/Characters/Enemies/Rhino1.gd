@@ -1,3 +1,4 @@
+#Rhino1.gd
 extends CharacterBody2D
 
 const SPEED = 50.0
@@ -22,10 +23,10 @@ func _physics_process(delta):
 	#Check if the player exists and is in range
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position) 
-		if distance_to_player < 60: #Adjust as necessary
+		if distance_to_player < 80: #Adjust as necessary
 			player_in_range = true
-	else:
-		player_in_range = false
+		else:
+			player_in_range = false
 	
 	#Play running animation based on player's proximity
 	if player_in_range:
@@ -34,7 +35,9 @@ func _physics_process(delta):
 		#Move towards player (left direction)
 		move_towards_player(player)
 	else:
+		velocity = Vector2.ZERO
 		animated_sprite.play(IDLE_ANIMATION)
+	
 	move_and_slide()
 
 
@@ -51,3 +54,8 @@ func move_towards_player(player):
 	
 func _ready():
 	animated_sprite.play(IDLE_ANIMATION)
+
+func _on_area_2d_body_entered(body):
+	if body.name == "Player":
+		animated_sprite.play("die")
+		body.take_damage()
