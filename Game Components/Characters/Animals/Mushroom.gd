@@ -1,4 +1,4 @@
-# Moose.gd
+# Mushroom.gd
 extends CharacterBody2D
 
 const SPEED = 50.0
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	#Check if the player exists and is in range
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position) 
-		if distance_to_player < 60: #Adjust as necessary
+		if distance_to_player < 70: #Adjust as necessary
 			player_in_range = true
 		else:
 			player_in_range = false
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	#Play running animation based on player's proximity
 	if player_in_range:
 		#Run toward player
-		animated_sprite.play("idle")
+		animated_sprite.play("run")
 		#Move towards player (left direction)
 		move_towards_player(player)
 	else:
@@ -50,9 +50,9 @@ func move_towards_player(player):
 	velocity.y += gravity #enemy only moves left and right
 	
 	if direction.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
 		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 	
 func _ready():
 	animated_sprite.play(IDLE_ANIMATION)

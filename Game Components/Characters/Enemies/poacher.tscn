@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://duv2byr5amnd2"]
+[gd_scene load_steps=31 format=3 uid="uid://duv2byr5amnd2"]
 
 [ext_resource type="Texture2D" uid="uid://cmrwn71pictwi" path="res://Assets/Poachers/CHARACTER_SPRITES/Black/Gunner_Black_Death.png" id="1_5x7ip"]
 [ext_resource type="Script" path="res://Game Components/Characters/Enemies/Poacher.gd" id="1_nh3xk"]
@@ -30,18 +30,6 @@ region = Rect2(144, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jh3m"]
 atlas = ExtResource("1_5x7ip")
 region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_khrnn"]
-atlas = ExtResource("1_5x7ip")
-region = Rect2(240, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tnrfj"]
-atlas = ExtResource("1_5x7ip")
-region = Rect2(288, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6f6ud"]
-atlas = ExtResource("1_5x7ip")
-region = Rect2(336, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_heqmp"]
 atlas = ExtResource("2_ptyyv")
@@ -116,15 +104,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jh3m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_khrnn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tnrfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6f6ud")
 }],
 "loop": true,
 "name": &"die",
@@ -215,7 +194,7 @@ shape = SubResource("RectangleShape2D_tefmc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_i5qml")
-animation = &"die"
+animation = &"idle"
 
 [node name="PoacherEffect" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ta3fd")
@@ -236,3 +215,4 @@ shape = SubResource("CapsuleShape2D_x3qcu")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

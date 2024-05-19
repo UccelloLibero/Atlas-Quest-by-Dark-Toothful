@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj337lw5kmxnw"]
+
+[ext_resource type="Script" path="res://Game Components/Levels/Instructions.gd" id="1_77ejs"]
+[ext_resource type="Texture2D" uid="uid://tjpbd256cy3u" path="res://Assets/Tilesets/ForestFeatures/BG1.png" id="2_fmh5a"]
+[ext_resource type="Texture2D" uid="uid://dfbsrki06huod" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/08.png" id="2_jju52"]
+[ext_resource type="FontFile" uid="uid://de81a1lncl8fw" path="res://Assets/Font/Counting Apples.ttf" id="2_sn5i0"]
+[ext_resource type="Texture2D" uid="uid://c7mf0iyhcueah" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart1.png" id="3_nlpjj"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="3_xi8f3"]
+[ext_resource type="Texture2D" uid="uid://cdn30ucsmg8qi" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/UIapple1.png" id="4_t6jwv"]
+
+[node name="Instructions" type="Node2D"]
+script = ExtResource("1_77ejs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -76.0
+offset_top = -25.0
+offset_right = 1247.0
+offset_bottom = 678.0
+texture = ExtResource("2_fmh5a")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 885.0
+offset_top = 497.0
+offset_right = 1101.0
+offset_bottom = 597.0
+theme_override_fonts/font = ExtResource("2_sn5i0")
+theme_override_font_sizes/font_size = 20
+text = "Back to main menu"
+
+[node name="AboutBiofact" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 120.0
+offset_right = 912.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("3_xi8f3")
+text = "Collect biofacts throughout the game
+to learn about different animals, 
+for a riddle at the end of each level."
+
+[node name="AboutLife" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 220.0
+offset_right = 912.0
+offset_bottom = 243.0
+theme_override_fonts/font = ExtResource("3_xi8f3")
+text = "Collect lives to stay in the game. "
+
+[node name="Biofact" type="Sprite2D" parent="."]
+position = Vector2(330, 150)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_jju52")
+
+[node name="Life" type="Sprite2D" parent="."]
+position = Vector2(330, 225)
+texture = ExtResource("3_nlpjj")
+
+[node name="Energy" type="Sprite2D" parent="."]
+position = Vector2(330, 340)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("4_t6jwv")
+
+[node name="HowToPlay" type="Label" parent="."]
+offset_left = 425.0
+offset_top = 24.0
+offset_right = 621.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("2_sn5i0")
+theme_override_font_sizes/font_size = 30
+text = "How to play"
+
+[node name="AboutEnergy" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 300.0
+offset_right = 912.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("3_xi8f3")
+text = "Collect fruit to maintain energy, 
+for all the quests you will discover. 
+But be wary of the animals. 
+Respect their habitat or
+they will reduce your energy."
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 65.0
+offset_top = 472.0
+offset_right = 590.0
+offset_bottom = 622.0
+color = Color(0, 0, 0, 0.564706)
+
+[node name="KeyboardMechanics" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 18.0
+offset_right = 519.0
+offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("3_xi8f3")
+theme_override_font_sizes/font_size = 20
+text = "Keyboard arrows + WASD for navigation
+
+Space + Shift for jumping
+
+Enter for attack"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

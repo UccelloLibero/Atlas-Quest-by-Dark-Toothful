@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://svesobw3t8bp"]
+[gd_scene load_steps=4 format=3 uid="uid://svesobw3t8bp"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/EndOfGameLevel.gd" id="1_kyqj1"]
 [ext_resource type="Texture2D" uid="uid://cb02jb8p0550v" path="res://Assets/Tilesets/Nature/BG/Sky-Background-Pixel-Art.jpeg" id="2_d7dab"]
+[ext_resource type="FontFile" uid="uid://de81a1lncl8fw" path="res://Assets/Font/Counting Apples.ttf" id="3_u3shc"]
 
 [node name="EndOfGameLevel" type="Node2D"]
 script = ExtResource("1_kyqj1")
@@ -15,14 +16,8 @@ offset_left = 250.0
 offset_top = 300.0
 offset_right = 450.0
 offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("3_u3shc")
+theme_override_font_sizes/font_size = 30
 text = "Play Again"
 
-[node name="GameOver" type="Button" parent="."]
-offset_left = 750.0
-offset_top = 300.0
-offset_right = 950.0
-offset_bottom = 400.0
-text = "Game Over"
-
 [connection signal="pressed" from="PlayAgain" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GameOver" to="." method="_on_game_over_pressed"]

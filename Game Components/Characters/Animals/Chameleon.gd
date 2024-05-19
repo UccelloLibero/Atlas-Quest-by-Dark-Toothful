@@ -5,7 +5,8 @@ extends CharacterBody2D
 const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = 10
+
 @onready var animated_sprite = $AnimatedSprite2D
 
 # Declare whether character is dead or alive
