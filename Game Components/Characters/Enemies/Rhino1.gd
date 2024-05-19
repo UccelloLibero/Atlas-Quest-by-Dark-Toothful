@@ -1,4 +1,4 @@
-#generic_enemy.gd
+#Rhino1.gd
 extends CharacterBody2D
 
 const SPEED = 50.0
@@ -23,7 +23,7 @@ func _physics_process(delta):
 	#Check if the player exists and is in range
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position) 
-		if distance_to_player < 120: #Adjust as necessary
+		if distance_to_player < 80: #Adjust as necessary
 			player_in_range = true
 		else:
 			player_in_range = false
@@ -37,7 +37,7 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 		animated_sprite.play(IDLE_ANIMATION)
-		
+	
 	move_and_slide()
 
 
@@ -48,9 +48,9 @@ func move_towards_player(player):
 	velocity.y += gravity #enemy only moves left and right
 	
 	if direction.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
 		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 	
 func _ready():
 	animated_sprite.play(IDLE_ANIMATION)

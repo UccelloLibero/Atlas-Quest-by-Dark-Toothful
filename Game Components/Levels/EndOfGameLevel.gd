@@ -16,4 +16,5 @@ func _on_button_pressed():
 		get_tree().change_scene_to_file("res://Game Components/Levels/level_1.tscn")
 
 
-
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://Game Components/Levels/Credits_Page.tscn")

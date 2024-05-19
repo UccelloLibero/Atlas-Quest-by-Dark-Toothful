@@ -1,4 +1,4 @@
-#generic_enemy.gd
+#GenericEnemy2.gd
 extends CharacterBody2D
 
 const SPEED = 50.0

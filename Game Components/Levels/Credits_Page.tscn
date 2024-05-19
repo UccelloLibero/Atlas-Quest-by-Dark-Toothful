@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://bratjhwobibxr"]
+
+[ext_resource type="Texture2D" uid="uid://cwk6af4h2kgmp" path="res://Assets/Tilesets/Nature/BG/Sky-with-Clouds-Background-Pixel-Art6.jpg" id="1_f11bv"]
+
+[node name="CreditsPage" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(548, 297)
+texture = ExtResource("1_f11bv")
+
+[node name="Studio Name" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 400.0
+offset_top = 18.0
+offset_right = 742.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "DARK TOOTHFUL STUDIO"
+horizontal_alignment = 1
+
+[node name="Our Team" type="Label" parent="."]
+offset_left = 315.0
+offset_top = 70.0
+offset_right = 790.0
+offset_bottom = 215.0
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0, 0, 0.870588, 1)
+text = "Producer: Teace
+Art Expert: Alexandra
+Programmer: Maya
+Game Designers: Alexandra, Maya, Teace"
+horizontal_alignment = 1
+
+[node name="Art Credits" type="Label" parent="."]
+offset_left = 154.0
+offset_top = 255.0
+offset_right = 954.0
+offset_bottom = 407.0
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ART:
+Tilemap by surt on OpenGameArt.org, Adventurer by rvros on itch.io, Characters by Pixel Frog on itch.io, Poachers by Secret Hideout on itch.io, Key Items by DantePixels on itch.io, Elephant by AntumDeluge on OpenGameArt.org
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Music Credits" type="Label" parent="."]
+offset_left = 265.0
+offset_top = 442.0
+offset_right = 837.0
+offset_bottom = 563.0
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MUSIC:
+\"Epic champ\" by L'homme Manete (Free Music Archive)
+\"Moving Boulder\" by L'homme Manete (Free Music Archive)
+\"Out of the Cave\" by L'homme Manete (Free Music Archive)"
+horizontal_alignment = 1
+
+[node name="Special Thanks" type="Label" parent="."]
+offset_left = 177.0
+offset_top = 593.0
+offset_right = 997.0
+offset_bottom = 621.0
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0, 0, 0.890196, 1)
+text = "Special thanks to Endless Studios and mentors for all of your help during this process"

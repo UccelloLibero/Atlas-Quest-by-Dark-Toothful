@@ -1,4 +1,4 @@
-# ElephantFact1.gd
+# ElephantFact4.gd
 extends Area2D
 
 @onready var ElephantFact1_animation = $AnimatedSprite2D
@@ -8,7 +8,8 @@ extends Area2D
 @onready var collected_sound = $AudioStreamPlayer2D
 
 # Exported variable to adjust the label visibility time
-@export var label_duration = 5
+@export var label_duration = 7
+# life and biofact enum
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +25,7 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		ElephantFact1_colorRect.visible = true
 		ElephantFact1_label.visible = true
-		timer.start()
+		timer.start(5)
 
 # Hide label when the player exits the Fact Area
 func _on_body_exited(body):
@@ -39,6 +40,4 @@ func _on_body_exited(body):
 		
 # Hide the label when the timer times out
 func _on_timer_timeout():
-	ElephantFact1_colorRect.visible = false
 	ElephantFact1_label.visible = false
-	

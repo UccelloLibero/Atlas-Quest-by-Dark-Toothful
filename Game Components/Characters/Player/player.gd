@@ -131,7 +131,7 @@ func _input(event):
 			Global.is_jumping = true
 	# Reset gravity		
 	else:
-		gravity = 500
+		gravity = 350
 		Global.is_climbing = false
 		Global.is_jumping = false
 		

@@ -13,11 +13,20 @@ texture = ExtResource("2_d7dab")
 
 [node name="PlayAgain" type="Button" parent="."]
 offset_left = 250.0
-offset_top = 300.0
+offset_top = 210.0
 offset_right = 450.0
 offset_bottom = 400.0
 theme_override_fonts/font = ExtResource("3_u3shc")
 theme_override_font_sizes/font_size = 30
 text = "Play Again"
 
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 500.0
+offset_top = 472.0
+offset_right = 700.0
+offset_bottom = 572.0
+text = "Credits"
+
 [connection signal="pressed" from="PlayAgain" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
