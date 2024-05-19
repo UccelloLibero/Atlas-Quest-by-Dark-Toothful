@@ -67,6 +67,7 @@ position = Vector2(1345, -271)
 script = ExtResource("1_welts")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_svyrx")
 animation = &"collected"
 

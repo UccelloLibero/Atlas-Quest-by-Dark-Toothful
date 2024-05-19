@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwahngksb6g48"]
+
+[ext_resource type="Script" path="res://Game Components/Characters/Enemies/Gorilla.gd" id="1_v12x5"]
+[ext_resource type="Texture2D" uid="uid://pem0a4hhc3yn" path="res://Assets/Sprites/Animal pack/Hulking Gorilla/HulkingGorillaIdleSide.png" id="2_ql6jy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3424h"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w12eh"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j17je"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfwhp"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x21te"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ykb3"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40ife"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc8lu"]
+atlas = ExtResource("2_ql6jy")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewinn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3424h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w12eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j17je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfwhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x21te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ykb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40ife")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc8lu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5adkx"]
+size = Vector2(32, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vnug"]
+size = Vector2(35, 36)
+
+[node name="Gorilla" type="CharacterBody2D"]
+position = Vector2(2577, -66)
+script = ExtResource("1_v12x5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.90735e-06, -2.38419e-07)
+scale = Vector2(1.19387, 1.19387)
+sprite_frames = SubResource("SpriteFrames_ewinn")
+animation = &"idle"
+frame_progress = 0.205184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_5adkx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_6vnug")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
