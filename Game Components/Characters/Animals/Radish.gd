@@ -1,4 +1,4 @@
-# Moose.gd
+# Radish.gd
 extends CharacterBody2D
 
 const SPEED = 50.0
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	#Play running animation based on player's proximity
 	if player_in_range:
 		#Run toward player
-		animated_sprite.play("idle")
+		animated_sprite.play("run")
 		#Move towards player (left direction)
 		move_towards_player(player)
 	else:
@@ -50,9 +50,9 @@ func move_towards_player(player):
 	velocity.y += gravity #enemy only moves left and right
 	
 	if direction.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
 		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 	
 func _ready():
 	animated_sprite.play(IDLE_ANIMATION)

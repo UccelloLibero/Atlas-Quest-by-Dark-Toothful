@@ -1,11 +1,11 @@
-# Moose.gd
+# PoacherGreen.gd
 extends CharacterBody2D
 
 const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
-
 var gravity = 10
 
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 
 # Declare whether character is dead or alive
@@ -13,6 +13,7 @@ var _died = false
 
 #A variable that tracks the player's proximity to the enemy
 var player_in_range = false
+var player_in_contact = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -24,17 +25,21 @@ func _physics_process(delta):
 	#Check if the player exists and is in range
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position) 
-		if distance_to_player < 60: #Adjust as necessary
+		if distance_to_player < 80: #Adjust as necessary
 			player_in_range = true
 		else:
 			player_in_range = false
 	
-	#Play running animation based on player's proximity
-	if player_in_range:
+	#Play animation based on player's proximity
+	if player_in_contact:
+		# Play stunned animation when in contact wiht the player
+		animated_sprite.play("die")
+	elif player_in_range:
 		#Run toward player
-		animated_sprite.play("idle")
+		animated_sprite.play("run")
 		#Move towards player (left direction)
 		move_towards_player(player)
+			
 	else:
 		# Reset velocity and play idle animation
 		velocity = Vector2.ZERO
@@ -47,7 +52,7 @@ func _physics_process(delta):
 func move_towards_player(player):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * SPEED
-	velocity.y += gravity #enemy only moves left and right
+	velocity.y += gravity # Enemy only moves left and right
 	
 	if direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
@@ -60,4 +65,10 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
-		body.reduce_energy()
+		player_in_contact = true
+		body.take_damage()
+
+
+func _on_area_2d_body_exited(body):
+	if body.name == "Player":
+		player_in_contact = false

@@ -18,8 +18,8 @@ extends CharacterBody2D
 
 # Player movement variables
 @export var speed : float = 200.0
-@export var gravity = 980
-@export var jump_height : float = -215.0
+@export var gravity = 800
+@export var jump_height : float = -350.0
 
 
 # Custom signals

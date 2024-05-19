@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://by2t52uahcm7d"]
+[gd_scene load_steps=4 format=3 uid="uid://by2t52uahcm7d"]
 
 [ext_resource type="Script" path="res://Game Components/Riddles/BeeRiddle3.gd" id="1_8hq0t"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_1d4b2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
 size = Vector2(77, 69)
@@ -13,9 +14,17 @@ position = Vector2(28.5, 24.5)
 shape = SubResource("RectangleShape2D_u5l3w")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 500.0
-offset_bottom = 300.0
-color = Color(0.298039, 0.298039, 0.301961, 0.407843)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -99.0
+offset_right = 264.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.188235, 0.270588, 0.160784, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
@@ -23,37 +32,14 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 259.0
 offset_bottom = 45.0
-text = "How many eyes do bees have? "
-
-[node name="Button" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 150.0
-offset_right = 160.0
-offset_bottom = 190.0
-text = "Five"
-
-[node name="Button2" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 200.0
-offset_right = 160.0
-offset_bottom = 240.0
-text = "Eight"
-
-[node name="Button3" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 250.0
-offset_right = 160.0
-offset_bottom = 290.0
-text = "Two"
+theme_override_fonts/font = ExtResource("2_1d4b2")
+text = "Bees have five eyes!
+Two compound eyes that help them see, 
+and three ocelli eyes that help detect UV light. "
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="ColorRect/Button3" to="." method="_on_button_3_pressed"]

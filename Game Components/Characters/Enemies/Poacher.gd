@@ -1,10 +1,11 @@
-
+# Poacher.gd
 extends CharacterBody2D
 
 const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
+var gravity = 10
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 
 # Declare whether character is dead or alive
@@ -12,6 +13,7 @@ var _died = false
 
 #A variable that tracks the player's proximity to the enemy
 var player_in_range = false
+var player_in_contact = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -28,8 +30,11 @@ func _physics_process(delta):
 		else:
 			player_in_range = false
 	
-	#Play running animation based on player's proximity
-	if player_in_range:
+	#Play animation based on player's proximity
+	if player_in_contact:
+		# Play stunned animation when in contact wiht the player
+		animated_sprite.play("die")
+	elif player_in_range:
 		#Run toward player
 		animated_sprite.play("run")
 		#Move towards player (left direction)
@@ -47,7 +52,7 @@ func _physics_process(delta):
 func move_towards_player(player):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * SPEED
-	velocity.y += gravity #enemy only moves left and right
+	velocity.y += gravity # Enemy only moves left and right
 	
 	if direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
@@ -60,8 +65,15 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
-		animated_sprite.play("die")
+		player_in_contact = true
 		body.take_damage()
+
+
+func _on_area_2d_body_exited(body):
+	if body.name == "Player":
+		player_in_contact = false
+
+
 
 
 
