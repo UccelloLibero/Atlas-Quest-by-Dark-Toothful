@@ -463,7 +463,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6ihnp")
 }],
-"loop": false,
+"loop": true,
 "name": &"apple",
 "speed": 20.0
 }, {
@@ -709,8 +709,7 @@ pitch_scale = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nffs5")
-animation = &"apple"
-frame_progress = 0.666667
+animation = &"strawberry"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

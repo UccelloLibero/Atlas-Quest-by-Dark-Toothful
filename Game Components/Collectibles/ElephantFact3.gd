@@ -8,12 +8,8 @@ extends Area2D
 @onready var collected_sound = $AudioStreamPlayer2D
 
 # Exported variable to adjust the label visibility time
-@export var label_duration = 300
+@export var label_duration = 7
 # life and biofact enum
-@export var collect : Global.LifeBiofact
-
-# Sound
-var collected = preload("res://Assets/Sounds/biofactpickup.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,10 +19,6 @@ func _ready():
 	ElephantFact1_label.visible = false
 	timer.one_shot = true
 	timer.wait_time = label_duration
-	if collect == Global.LifeBiofact.LIFE:
-		$AnimatedSprite2D.play("life")
-	elif collect == Global.LifeBiofact.BIOFACT:
-		$AnimatedSprite2D.play("biofact")
 	
 # Show label when the player enters the Fact area
 func _on_body_entered(body):
@@ -38,12 +30,11 @@ func _on_body_entered(body):
 # Hide label when the player exits the Fact Area
 func _on_body_exited(body):
 	if body.name == "Player":
-		timer.stop() # Stop timer to avoid automatic hiding
-		ElephantFact1_colorRect.visible = false
-		ElephantFact1_label.visible = false
+		#timer.stop() # Stop timer to avoid automatic hiding
+		#ElephantFact1_colorRect.visible = false
+		#ElephantFact1_label.visible = false
 		ElephantFact1_animation.play("collected")
 		await ElephantFact1_animation.animation_finished
-		body.add_life_biofact(collect)
 		queue_free()
 		
 		

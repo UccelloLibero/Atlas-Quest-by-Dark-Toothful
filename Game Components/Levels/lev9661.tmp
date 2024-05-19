@@ -8994,7 +8994,8 @@ script = ExtResource("31_pgbdl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Elephant"]
 position = Vector2(-2, -15)
 sprite_frames = SubResource("SpriteFrames_62ql4")
-animation = &"turn back"
+animation = &"idle"
+frame_progress = 0.89447
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elephant"]
 position = Vector2(-0.5, -1)
@@ -9029,41 +9030,41 @@ autowrap_mode = 3
 
 [node name="Button" type="Button" parent="Elephant/ElephantRiddle1/ColorRect"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 76.0
 offset_top = 58.0
-offset_right = 175.0
+offset_right = 170.0
 offset_bottom = 98.0
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("32_o84l4")
-text = "Savanna "
+text = "Incorrect "
 
 [node name="Button2" type="Button" parent="Elephant/ElephantRiddle1/ColorRect"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 78.0
 offset_top = 103.0
-offset_right = 175.0
+offset_right = 184.0
 offset_bottom = 143.0
 theme_override_fonts/font = ExtResource("32_o84l4")
-text = "Forest"
+text = "Correct"
 
 [node name="Button3" type="Button" parent="Elephant/ElephantRiddle1/ColorRect"]
 layout_mode = 0
-offset_left = 235.0
+offset_left = 241.0
 offset_top = 57.0
-offset_right = 355.0
+offset_right = 347.0
 offset_bottom = 97.0
 theme_override_fonts/font = ExtResource("32_o84l4")
-text = "Grassland"
+text = "Incorrect"
 
 [node name="Button4" type="Button" parent="Elephant/ElephantRiddle1/ColorRect"]
 layout_mode = 0
-offset_left = 235.0
+offset_left = 241.0
 offset_top = 103.0
-offset_right = 355.0
+offset_right = 347.0
 offset_bottom = 143.0
 theme_override_fonts/font = ExtResource("32_o84l4")
-text = "Desert"
+text = "Incorrect"
 
 [node name="Timer" type="Timer" parent="Elephant/ElephantRiddle1"]
 wait_time = 10.0
@@ -9166,9 +9167,5 @@ visible = false
 position = Vector2(2468, -17)
 
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
-[connection signal="body_entered" from="Elephant/ElephantRiddle1" to="Elephant/ElephantRiddle1" method="_on_body_entered"]
-[connection signal="pressed" from="Elephant/ElephantRiddle1/ColorRect/Button" to="Elephant/ElephantRiddle1" method="_on_button_pressed"]
-[connection signal="pressed" from="Elephant/ElephantRiddle1/ColorRect/Button2" to="Elephant/ElephantRiddle1" method="_on_button_2_pressed"]
-[connection signal="pressed" from="Elephant/ElephantRiddle1/ColorRect/Button3" to="Elephant/ElephantRiddle1" method="_on_button_3_pressed"]
-[connection signal="pressed" from="Elephant/ElephantRiddle1/ColorRect/Button4" to="Elephant/ElephantRiddle1" method="_on_button_4_pressed"]
+[connection signal="body_entered" from="Elephant/ElephantRiddle1" to="Elephant" method="_on_elephant_riddle_1_body_entered"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]
