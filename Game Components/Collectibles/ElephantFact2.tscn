@@ -60,12 +60,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf5s5"]
-size = Vector2(16, 15)
+size = Vector2(14, 15)
 
 [node name="ElephantFact2" type="Area2D"]
 script = ExtResource("1_pmcr4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_w55vk")
 animation = &"collected"
 

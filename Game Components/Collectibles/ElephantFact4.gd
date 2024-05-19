@@ -1,53 +1,43 @@
-# When you add at the top of a script the tool keyword, 
-# it will be executed not only during the game, 
-# but also in the editor.
-@tool
-
-# life_energy.gd
+# ElephantFact4.gd
 extends Area2D
 
-# life and biofact enum
-@export var collect : Global.LifeBiofact
-
-
-# Sound
-var collected = preload("res://Assets/Sounds/biofactpickup.mp3")
-
-# Referece the sprite texture & audio node
-@onready var sprite_texture = $AnimatedSprite2D
+@onready var ElephantFact1_animation = $AnimatedSprite2D
+@onready var ElephantFact1_colorRect = $ColorRect
+@onready var ElephantFact1_label = $ColorRect/Label
+@onready var timer = $Timer
 @onready var collected_sound = $AudioStreamPlayer2D
 
-func play_sound():
-	collected_sound.stream = collected
-	collected_sound.play()
+# Exported variable to adjust the label visibility time
+@export var label_duration = 7
+# life and biofact enum
 
-
-# Removes life/biofact from the game scene tree
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	ElephantFact1_animation.play("idle")
+	# Hide label and timer initially
+	ElephantFact1_colorRect.visible = false
+	ElephantFact1_label.visible = false
+	timer.one_shot = true
+	timer.wait_time = label_duration
+	
+# Show label when the player enters the Fact area
 func _on_body_entered(body):
 	if body.name == "Player":
-		play_sound()
+		ElephantFact1_colorRect.visible = true
+		ElephantFact1_label.visible = true
+		timer.start(5)
 
-
-# Allows to change the sprite texture in the editor
-func _process(delta):
-	if Engine.is_editor_hint():
-		if collect == Global.LifeBiofact.LIFE:
-			$AnimatedSprite2D.play("life")
-		elif collect == Global.LifeBiofact.BIOFACT:
-			$AnimatedSprite2D.play("biofact")
-
-			
-
-# Change sprites texture in game scene
-func _ready():
-	if collect == Global.LifeBiofact.LIFE:
-		$AnimatedSprite2D.play("life")
-	elif collect == Global.LifeBiofact.BIOFACT:
-		$AnimatedSprite2D.play("biofact")
-		
-
-
+# Hide label when the player exits the Fact Area
 func _on_body_exited(body):
-	get_tree().queue_delete(self)
-	# Add life/biofact to player to change player statistics
-	body.add_life_biofact(collect)
+	if body.name == "Player":
+		#timer.stop() # Stop timer to avoid automatic hiding
+		#ElephantFact1_colorRect.visible = false
+		#ElephantFact1_label.visible = false
+		ElephantFact1_animation.play("collected")
+		await ElephantFact1_animation.animation_finished
+		queue_free()
+		
+		
+# Hide the label when the timer times out
+func _on_timer_timeout():
+	ElephantFact1_label.visible = false
