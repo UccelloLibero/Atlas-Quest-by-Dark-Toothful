@@ -8915,7 +8915,7 @@ animations = [{
 size = Vector2(48, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t07bp"]
-size = Vector2(68.0255, 49.6946)
+size = Vector2(79.4752, 53.3756)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6d3l"]
 size = Vector2(742, 39)
@@ -9004,7 +9004,8 @@ shape = SubResource("RectangleShape2D_aruay")
 scale = Vector2(1.48474, 1.08664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elephant/Area2D"]
-position = Vector2(-0.336792, 1.84055)
+position = Vector2(2.02063, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t07bp")
 
 [node name="CollectableObjects" type="Node2D" parent="."]
@@ -9105,7 +9106,12 @@ position = Vector2(2468, -17)
 
 [node name="ElephantRiddle1" parent="." instance=ExtResource("43_v10qy")]
 
+[node name="LifeBiofact" parent="." instance=ExtResource("32_amkuf")]
+position = Vector2(2484, -74)
+collect = 1
+
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_exited" from="Elephant/Area2D" to="Elephant" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="FinishedLevel" to="." method="_on_finished_level_body_entered"]
+[connection signal="body_exited" from="ElephantRiddle1" to="ElephantRiddle1" method="_on_body_exited"]

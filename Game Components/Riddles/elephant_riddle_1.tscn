@@ -4,14 +4,14 @@
 [ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_udofk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88omm"]
-size = Vector2(41, 69)
+size = Vector2(149, 69)
 
 [node name="ElephantRiddle1" type="Area2D"]
 position = Vector2(2489, -44)
 script = ExtResource("1_0iq8u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-9.5, -39)
+position = Vector2(-3.5, -39)
 shape = SubResource("RectangleShape2D_88omm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
