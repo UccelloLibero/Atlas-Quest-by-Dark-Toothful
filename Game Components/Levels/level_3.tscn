@@ -9096,7 +9096,7 @@ position = Vector2(521, 32)
 shape = SubResource("RectangleShape2D_u6d3l")
 
 [node name="FinishedLevel" parent="." instance=ExtResource("39_v1pj0")]
-position = Vector2(3053, -64)
+position = Vector2(3054, -65)
 script = ExtResource("40_vgp3e")
 
 [node name="Riddle" parent="." instance=ExtResource("39_26xto")]
