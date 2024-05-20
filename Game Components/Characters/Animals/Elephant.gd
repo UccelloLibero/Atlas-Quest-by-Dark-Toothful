@@ -24,7 +24,12 @@ func _process(delta):
 		# Move towards player
 		position.x = position.move_toward(Vector2(target_x_position, position.y), follow_speed * delta).x
 		
-
+		var direction = (player.global_position - global_position).normalized()	
+		if direction.x < 0:
+			animated_sprite.play("walk left")
+		else:
+			animated_sprite.play("walk right")
+				
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" and body is CharacterBody2D:
 		is_following = true

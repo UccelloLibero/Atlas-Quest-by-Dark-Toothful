@@ -8915,7 +8915,7 @@ animations = [{
 size = Vector2(48, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t07bp"]
-size = Vector2(65, 39)
+size = Vector2(68.0255, 49.6946)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6d3l"]
 size = Vector2(742, 39)
@@ -8988,23 +8988,23 @@ position = Vector2(1666, -66)
 position = Vector2(1423, -58)
 
 [node name="Elephant" type="CharacterBody2D" parent="."]
-position = Vector2(1333, -76)
+position = Vector2(2761, -76)
 script = ExtResource("31_pgbdl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Elephant"]
 position = Vector2(-1, -17)
 sprite_frames = SubResource("SpriteFrames_62ql4")
-animation = &"turn forward"
-frame_progress = 0.272135
+animation = &"walk left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elephant"]
 position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_aruay")
 
 [node name="Area2D" type="Area2D" parent="Elephant"]
+scale = Vector2(1.48474, 1.08664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elephant/Area2D"]
-position = Vector2(-0.5, 9.5)
+position = Vector2(-0.336792, 1.84055)
 shape = SubResource("RectangleShape2D_t07bp")
 
 [node name="CollectableObjects" type="Node2D" parent="."]
