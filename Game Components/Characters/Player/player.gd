@@ -268,6 +268,7 @@ func add_energy(fruit):
 
 # Reset the hurt_sound_cooldown aftr short delay
 func _reset_hurt_sound_cooldown():
+
 	await get_tree().create_timer(0.5).timeout
 	hurt_sound_cooldown = false
 

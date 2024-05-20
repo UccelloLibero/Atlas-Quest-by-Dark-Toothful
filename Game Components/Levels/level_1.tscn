@@ -5466,7 +5466,7 @@ one_shot = true
 position = Vector2(89, 510)
 limit_left = -390
 limit_top = -125
-limit_right = 3500
+limit_right = 3305
 limit_bottom = 800
 editor_draw_limits = true
 
