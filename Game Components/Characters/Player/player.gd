@@ -16,10 +16,13 @@ extends CharacterBody2D
 # Reference Death zone dying sound in tree
 @onready var death_zone_sound_audio = $DeathZoneSound
 
+# Reference player hurt sound
+@onready var player_hurt_audio = $PlayerHurtSound
+
 # Player movement variables
 @export var speed : float = 200.0
 @export var gravity = 800
-@export var jump_height : float = -250.0
+@export var jump_height : float = -300.0
 
 
 # Custom signals
@@ -29,6 +32,9 @@ signal update_energy(energy)
 
 # Death zone sound preload
 var death_zone_sound = preload("res://Assets/Sounds/deathzone.mp3")
+
+# Player hrut sound preload
+var player_hurt_sound = preload("res://Assets/Sounds/player-hurt.mp3")
 
 # Life statistics
 var max_lives = 3
@@ -40,6 +46,10 @@ var biofacts = int()
 
 # Energy statistics
 var energy = 0
+
+
+# Cooldown timer for hurt sound
+var hurt_sound_cooldown = false
 
 func _ready():
 	# Update UI labels when signals are emited
@@ -173,13 +183,19 @@ func take_damage():
 		# Allow animation "damage" to play
 		set_physics_process(false)
 		
+	# Play hurt sound
+	player_hurt_audio.stream = player_hurt_sound
+	player_hurt_audio.play()	
+	hurt_sound_cooldown = true
+	call_deferred("_reset_hurt_sound_cooldown")
+		
 		
 		#is_hurt = true
 	if lives == 0:
 		$AnimatedSprite2D.play("die")
 		#await $AnimatedSprite2D.animation_finished
 		get_tree().reload_current_scene()
-		
+
 		
 	# Add flashing effect to show damage 
 	$AnimatedSprite2D.modulate = Color.DARK_RED
@@ -192,6 +208,12 @@ func reduce_energy():
 	if energy >= 5:
 		energy -= 5
 		update_energy.emit(energy)
+		
+	# Play hurt sound
+	player_hurt_audio.stream = player_hurt_sound
+	player_hurt_audio.play()
+	hurt_sound_cooldown = true
+	call_deferred("_reset_hurt_sound_cooldown")
 		
 	if energy == 0 and lives == 0:
 		update_energy.emit(energy)
@@ -244,14 +266,9 @@ func add_energy(fruit):
 		energy +=5
 		update_energy.emit(energy)
 
-
-	
-	
-
-
-func _on_change_scene_body_entered(body):
-	pass # Replace with function body.
+# Reset the hurt_sound_cooldown aftr short delay
+func _reset_hurt_sound_cooldown():
+	await get_tree().create_timer(0.5).timeout
+	hurt_sound_cooldown = false
 
 
-func _on_finished_level_body_entered(body):
-	pass # Replace with function body.

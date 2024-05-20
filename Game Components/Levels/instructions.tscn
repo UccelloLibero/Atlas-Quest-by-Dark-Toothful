@@ -12,6 +12,7 @@
 script = ExtResource("1_77ejs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.745098)
 offset_left = -76.0
 offset_top = -25.0
 offset_right = 1247.0
@@ -83,7 +84,7 @@ they will reduce your energy."
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 65.0
 offset_top = 472.0
-offset_right = 590.0
+offset_right = 615.0
 offset_bottom = 622.0
 color = Color(0, 0, 0, 0.564706)
 
@@ -95,7 +96,7 @@ offset_right = 519.0
 offset_bottom = 153.0
 theme_override_fonts/font = ExtResource("3_xi8f3")
 theme_override_font_sizes/font_size = 20
-text = "Keyboard arrows or WASD for navigation
+text = "Directional keypad + WASD for navigation
 
 Space or Shift for jumping
 

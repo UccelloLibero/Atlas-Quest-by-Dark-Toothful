@@ -1,4 +1,4 @@
-# BeeRiddle2
+# FinalBeeRiddleQ.gd
 extends Area2D
 
 @onready var riddle_display = $ColorRect
@@ -7,6 +7,9 @@ extends Area2D
 @onready var button_option1 = $ColorRect/Button2
 @onready var button_option2 = $ColorRect/Button3
 @onready var timer = $Timer
+
+# Correct answer index
+@export var correct_answer = 3
 
 # Hide riddle on start
 func _ready():
@@ -46,6 +49,10 @@ func _on_button_3_pressed():
 	supports other insects, 
 	which then supports birds, bats, mammals
 	and everything up the food chain with food and shelter."
-	timer.start(5)
-	await timer.timeout
-	queue_free()
+	await get_tree().create_timer(5.0).timeout # Small delay for player to read
+	
+	get_tree().change_scene_to_file("res://Game Components/Levels/level_3.tscn")
+	
+	#timer.start(5)
+	#await timer.timeout
+	#queue_free()

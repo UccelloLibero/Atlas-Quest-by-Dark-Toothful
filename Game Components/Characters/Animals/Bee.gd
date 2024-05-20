@@ -10,10 +10,10 @@ extends Area2D
 @export var label_duration = 8.0
 
 # Get bee ready to follow the player
-@export var follow_speed := 200
+@export var follow_speed := 150
 @onready var player: CharacterBody2D = null
 var is_following := false
-@export var offset := Vector2(0, -50)
+@export var offset := Vector2(0, -70)
 
 
 # Flag to check if label has been shown
