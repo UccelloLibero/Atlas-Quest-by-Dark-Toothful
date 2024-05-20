@@ -98,7 +98,7 @@ theme_override_fonts/font = ExtResource("3_xi8f3")
 theme_override_font_sizes/font_size = 20
 text = "Directional keypad + WASD for navigation
 
-Space + Shift for jumping
+Space or Shift for jumping
 
 Enter for attack"
 

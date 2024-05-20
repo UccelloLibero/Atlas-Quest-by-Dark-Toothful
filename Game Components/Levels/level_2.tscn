@@ -5245,13 +5245,14 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(50, 250)
 process_callback = 0
-limit_left = -2000
-limit_top = -5000
-limit_right = 100000
-limit_bottom = 100000
+limit_left = -585
+limit_top = -361
+limit_right = 5235
+limit_bottom = 915
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+editor_draw_limits = true
 
 [node name="DeathZone" type="Area2D" parent="."]
 
@@ -5267,6 +5268,7 @@ position = Vector2(712, 522)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("46_4n7tb")
+max_distance = 10000.0
 
 [node name="Riddles" type="Node2D" parent="."]
 

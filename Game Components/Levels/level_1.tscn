@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_1.gd" id="1_6hovc"]
 [ext_resource type="Texture2D" uid="uid://5edcd3irox5i" path="res://Assets/Pixel Art Adventure 1/Background/Green.png" id="1_ubwxf"]
+[ext_resource type="Script" path="res://Game Components/Levels/level_1.gd" id="1_y0f8q"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_28xrb"]
 [ext_resource type="Texture2D" uid="uid://c5q2tap3mioum" path="res://Assets/Pixel Art Adventure 1/Terrain/Terrain (16x16).png" id="3_qee1i"]
 [ext_resource type="PackedScene" uid="uid://b2uyic5t8hh12" path="res://Game Components/Characters/Player/player.tscn" id="4_q18yw"]
@@ -5464,10 +5465,11 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(89, 510)
-limit_left = -1000
-limit_top = -600
+limit_left = -390
+limit_top = -125
 limit_right = 3500
 limit_bottom = 800
+editor_draw_limits = true
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(6, -17)
