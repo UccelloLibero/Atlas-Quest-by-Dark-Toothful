@@ -15,7 +15,7 @@ func _ready():
 	button_correct.visible = false
 	button_option1.visible = false
 	button_option2.visible = false
-
+	
 # When player enters the collision boundry
 func _on_body_entered(body):
 	if body.name == "Player":
@@ -24,8 +24,7 @@ func _on_body_entered(body):
 		button_correct.visible = true
 		button_option1.visible = true
 		button_option2.visible = true
-
-
+	
 # You can choose which ever button you want to be correct 
 # Just make sure it includes the logic from the first button connected below
 # Connect buttons in Node > pressed() > Connect > Connect to script
@@ -45,3 +44,8 @@ func _on_button_3_pressed():
 
 func _on_button_4_pressed():
 	label_text.text = "That is incorect. Try Again."
+	timer.start(5)
+	await timer.timeout
+	queue_free()
+
+

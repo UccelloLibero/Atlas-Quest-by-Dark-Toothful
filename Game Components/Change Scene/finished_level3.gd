@@ -15,7 +15,5 @@ func play_next_level():
 	play_door_sound.play()
 	
 
-
-
 func _on_body_entered(body):
 	play_next_level()

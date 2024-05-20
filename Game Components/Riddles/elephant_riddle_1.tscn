@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://ulvds2vcmy7p"]
+
+[ext_resource type="Script" path="res://Game Components/Riddles/ElephantRiddle1.gd" id="1_0iq8u"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_udofk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88omm"]
+size = Vector2(41, 69)
+
+[node name="ElephantRiddle1" type="Area2D"]
+position = Vector2(2489, -44)
+script = ExtResource("1_0iq8u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-9.5, -39)
+shape = SubResource("RectangleShape2D_88omm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -219.0
+offset_top = -225.0
+offset_right = 181.0
+offset_bottom = -75.0
+color = Color(0, 0, 0, 0.572549)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_udofk")
+text = "In what ecosystem does the Sumatran elephant live?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 58.0
+offset_right = 175.0
+offset_bottom = 98.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_udofk")
+text = "Savanna "
+
+[node name="Button2" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 103.0
+offset_right = 175.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("2_udofk")
+text = "Forest"
+
+[node name="Button3" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 57.0
+offset_right = 355.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_udofk")
+text = "Grassland"
+
+[node name="Button4" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 103.0
+offset_right = 355.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("2_udofk")
+text = "Desert"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ColorRect/Button4" to="." method="_on_button_4_pressed"]
