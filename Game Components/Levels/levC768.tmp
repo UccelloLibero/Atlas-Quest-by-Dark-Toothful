@@ -8913,16 +8913,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aruay"]
-size = Vector2(48, 55)
+size = Vector2(48, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t07bp"]
-size = Vector2(68.0255, 57.977)
+size = Vector2(68.0255, 49.6946)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6d3l"]
 size = Vector2(742, 39)
 
 [node name="Level3" type="Node2D"]
-position = Vector2(44, 493)
+position = Vector2(40, 493)
 script = ExtResource("1_70tcs")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -8999,15 +8999,14 @@ sprite_frames = SubResource("SpriteFrames_62ql4")
 animation = &"walk left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elephant"]
-position = Vector2(-2, 2.5)
+position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_aruay")
 
 [node name="Area2D" type="Area2D" parent="Elephant"]
 scale = Vector2(1.48474, 1.08664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elephant/Area2D"]
-position = Vector2(-0.336548, -2.30069)
-scale = Vector2(1, 1)
+position = Vector2(-0.336792, 1.84055)
 shape = SubResource("RectangleShape2D_t07bp")
 
 [node name="CollectableObjects" type="Node2D" parent="."]
@@ -9099,7 +9098,7 @@ position = Vector2(521, 32)
 shape = SubResource("RectangleShape2D_u6d3l")
 
 [node name="FinishedLevel" parent="." instance=ExtResource("39_v1pj0")]
-position = Vector2(3050, -65)
+position = Vector2(3047, -64)
 script = ExtResource("40_vgp3e")
 
 [node name="Riddle" parent="." instance=ExtResource("39_26xto")]
@@ -9108,12 +9107,7 @@ position = Vector2(2468, -17)
 
 [node name="ElephantRiddle1" parent="." instance=ExtResource("43_v10qy")]
 
-[node name="LifeBiofact" parent="." instance=ExtResource("32_amkuf")]
-position = Vector2(2490, -74)
-collect = 1
-
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_exited" from="Elephant/Area2D" to="Elephant" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]
-[connection signal="body_entered" from="FinishedLevel" to="." method="_on_finished_level_body_entered"]
 [connection signal="body_exited" from="ElephantRiddle1" to="ElephantRiddle1" method="_on_body_exited"]

@@ -8,6 +8,9 @@ extends Area2D
 @onready var button_option2 = $ColorRect/Button3
 @onready var timer = $Timer
 
+# Exported variable to adjust the label visibility time
+@export var label_duration = 5
+
 # Hide riddle on start
 func _ready():
 	riddle_display.visible = false
@@ -31,7 +34,7 @@ func _on_body_entered(body):
 # Remeber to test and customize the layout of the text in the ColorRect
 
 func _on_button_pressed():
-	label_text.text = "That is incorect. Try Again."
+	label_text.text = "That is incorrect. Try Again."
 	timer.start(10)
 	await timer.timeout
 	queue_free()
@@ -40,12 +43,27 @@ func _on_button_2_pressed():
 	label_text.text = "Correct!"
 	
 func _on_button_3_pressed():
-	label_text.text = "That is incorect. Try Again."
+	label_text.text = "That is incorrect. Try Again."
 
 func _on_button_4_pressed():
-	label_text.text = "That is incorect. Try Again."
-	timer.start(5)
-	await timer.timeout
-	queue_free()
+	label_text.text = "That is incorrect. Try Again."
+	
+func _on_body_exited(body):
+	if body.name == "Player":
+		riddle_display.visible = false
+		label_text.visible = false
+		button_correct.visible = false
+		button_option1.visible = false
+		button_option2.visible = false
+		timer.start(5)
+		await timer.timeout
+		queue_free()
 
+# Hide the label when the timer times out
+func _on_timer_timeout():
+	riddle_display.visible = false
+	label_text.visible = false
+	button_correct.visible = false
+	button_option1.visible = false
+	button_option2.visible = false
 
