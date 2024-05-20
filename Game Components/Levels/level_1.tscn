@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_1.gd" id="1_6hovc"]
 [ext_resource type="Texture2D" uid="uid://5edcd3irox5i" path="res://Assets/Pixel Art Adventure 1/Background/Green.png" id="1_ubwxf"]
-[ext_resource type="Script" path="res://Game Components/Levels/level_1.gd" id="1_y0f8q"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_28xrb"]
 [ext_resource type="Texture2D" uid="uid://c5q2tap3mioum" path="res://Assets/Pixel Art Adventure 1/Terrain/Terrain (16x16).png" id="3_qee1i"]
 [ext_resource type="PackedScene" uid="uid://b2uyic5t8hh12" path="res://Game Components/Characters/Player/player.tscn" id="4_q18yw"]
@@ -5688,6 +5687,8 @@ fruit = 3
 [node name="Energy9" parent="." instance=ExtResource("19_xdigs")]
 position = Vector2(1420, 303)
 fruit = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]
