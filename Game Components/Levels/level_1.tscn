@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://decym5kwcvuq2"]
+[gd_scene load_steps=31 format=3 uid="uid://decym5kwcvuq2"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_1.gd" id="1_6hovc"]
 [ext_resource type="Texture2D" uid="uid://0feanyvqubfh" path="res://Assets/Tilesets/generic_platformer_tiles.png" id="2_28xrb"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://desjgutggy3pw" path="res://Game Components/Riddles/turtle_fact_5.tscn" id="16_uxfax"]
 [ext_resource type="PackedScene" uid="uid://ba2ieqjdrbmwr" path="res://Game Components/Collectibles/fruit.tscn" id="19_xdigs"]
 [ext_resource type="PackedScene" uid="uid://kehdnc6vle7f" path="res://Game Components/Riddles/final_turtle_riddle_q.tscn" id="21_vvis5"]
+[ext_resource type="AudioStream" uid="uid://bqrqbs4018etm" path="res://Assets/Sounds/Lhomme_Manete_-_Moving_Boulder.mp3" id="22_fg3gb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ujwmc"]
 texture = ExtResource("2_28xrb")
@@ -5699,6 +5700,9 @@ position = Vector2(1420, 303)
 fruit = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_fg3gb")
+autoplay = true
+max_distance = 10000.0
 
 [node name="FinalTurtleRiddleQ" parent="." instance=ExtResource("21_vvis5")]
 position = Vector2(2929, 476)

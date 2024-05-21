@@ -5257,6 +5257,7 @@ position = Vector2(712, 522)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("46_4n7tb")
+autoplay = true
 max_distance = 10000.0
 
 [node name="Facts" type="Node2D" parent="."]
