@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bratjhwobibxr"]
+[gd_scene load_steps=4 format=3 uid="uid://ctaxmsgimflx6"]
 
 [ext_resource type="Texture2D" uid="uid://cwk6af4h2kgmp" path="res://Assets/Tilesets/Nature/BG/Sky-with-Clouds-Background-Pixel-Art6.jpg" id="1_f11bv"]
+[ext_resource type="FontFile" uid="uid://de81a1lncl8fw" path="res://Assets/Font/Counting Apples.ttf" id="2_kyeu5"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="3_xnhyt"]
 
 [node name="CreditsPage" type="Node2D"]
 
@@ -19,17 +21,20 @@ offset_bottom = 57.0
 grow_horizontal = 2
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kyeu5")
 text = "DARK TOOTHFUL STUDIO"
 horizontal_alignment = 1
 
 [node name="Our Team" type="Label" parent="."]
-offset_left = 315.0
+offset_left = 243.0
 offset_top = 70.0
-offset_right = 790.0
+offset_right = 877.0
 offset_bottom = 215.0
 theme_type_variation = &"HeaderMedium"
 theme_override_colors/font_color = Color(0, 0, 0.870588, 1)
-text = "Producer: Teace
+theme_override_fonts/font = ExtResource("3_xnhyt")
+text = "
+Producer: Teace
 Art Expert: Alexandra
 Programmer: Maya
 Game Designers: Alexandra, Maya, Teace"
@@ -42,6 +47,7 @@ offset_right = 954.0
 offset_bottom = 407.0
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xnhyt")
 text = "ART:
 Tilemap by surt on OpenGameArt.org, Adventurer by rvros on itch.io, Characters by Pixel Frog on itch.io, Poachers by Secret Hideout on itch.io, Key Items by DantePixels on itch.io, Elephant by AntumDeluge on OpenGameArt.org
 "
@@ -49,23 +55,26 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Music Credits" type="Label" parent="."]
-offset_left = 265.0
-offset_top = 442.0
-offset_right = 837.0
-offset_bottom = 563.0
+offset_left = 171.0
+offset_top = 440.0
+offset_right = 919.0
+offset_bottom = 561.0
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "MUSIC:
+theme_override_fonts/font = ExtResource("3_xnhyt")
+text = "MUSIC & SOUNDS:
 \"Epic champ\" by L'homme Manete (Free Music Archive)
 \"Moving Boulder\" by L'homme Manete (Free Music Archive)
-\"Out of the Cave\" by L'homme Manete (Free Music Archive)"
+\"Out of the Cave\" by L'homme Manete (Free Music Archive)
+\"90's Game UI\" by Floraphonic (Pixabay)"
 horizontal_alignment = 1
 
 [node name="Special Thanks" type="Label" parent="."]
-offset_left = 177.0
-offset_top = 593.0
-offset_right = 997.0
-offset_bottom = 621.0
+offset_left = 19.0
+offset_top = 607.0
+offset_right = 1124.0
+offset_bottom = 635.0
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_color = Color(0, 0, 0.890196, 1)
-text = "Special thanks to Endless Studios and mentors for all of your help during this process"
+theme_override_fonts/font = ExtResource("3_xnhyt")
+text = "Special thanks to Endless Studios and mentors for all of their help during this process"
