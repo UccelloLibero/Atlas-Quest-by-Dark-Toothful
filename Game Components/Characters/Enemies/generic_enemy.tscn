@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bt6keukg2ul6m"]
+[gd_scene load_steps=27 format=3 uid="uid://bt6keukg2ul6m"]
 
 [ext_resource type="Script" path="res://Game Components/Characters/Enemies/Generic Enemy.gd" id="1_ja6bc"]
 [ext_resource type="Texture2D" uid="uid://qwkgdhs5uxl3" path="res://Assets/Poachers/CHARACTER_SPRITES/Red/Gunner_Red_Death.png" id="2_mbs02"]
@@ -159,6 +159,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kat3"]
 size = Vector2(26, 32)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4rih"]
+radius = 16.0
+height = 39.0
+
 [node name="Generic Enemy" type="CharacterBody2D"]
 position = Vector2(1147, -64)
 script = ExtResource("1_ja6bc")
@@ -173,3 +177,11 @@ frame_progress = 0.546797
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_4kat3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, 1.5)
+shape = SubResource("CapsuleShape2D_d4rih")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -29,20 +29,20 @@
 [ext_resource type="PackedScene" uid="uid://bt6keukg2ul6m" path="res://Game Components/Characters/Enemies/generic_enemy.tscn" id="25_c584y"]
 [ext_resource type="PackedScene" uid="uid://ba2ieqjdrbmwr" path="res://Game Components/Collectibles/fruit.tscn" id="27_f84v5"]
 [ext_resource type="PackedScene" uid="uid://coqwvvarwdabq" path="res://Game Components/Collectibles/ElephantFact1.tscn" id="28_3os3w"]
-[ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/gorilla.tscn" id="29_fgvuv"]
+[ext_resource type="PackedScene" uid="uid://cwahngksb6g48" path="res://Game Components/Characters/Enemies/gorilla.tscn" id="29_fgvuv"]
 [ext_resource type="PackedScene" uid="uid://n43uuvdeg7fr" path="res://Game Components/Collectibles/elephant_fact_3.tscn" id="30_ft6gq"]
 [ext_resource type="PackedScene" uid="uid://bs6cpmw5p3dcw" path="res://Game Components/Collectibles/ElephantFact2.tscn" id="30_oee6k"]
 [ext_resource type="Script" path="res://Game Components/Characters/Animals/Elephant.gd" id="31_pgbdl"]
 [ext_resource type="Texture2D" uid="uid://0wnql3mbth76" path="res://Assets/Sprites/Elephant/elephant.png" id="32_84mde"]
 [ext_resource type="PackedScene" uid="uid://bvgvkhyqotmn2" path="res://Game Components/Collectibles/life_biofact.tscn" id="32_amkuf"]
-[ext_resource type="PackedScene" path="res://Game Components/Collectibles/ElephantFact4.tscn" id="38_bc7cu"]
+[ext_resource type="PackedScene" uid="uid://cxot5w4tinj65" path="res://Game Components/Collectibles/ElephantFact4.tscn" id="38_bc7cu"]
 [ext_resource type="AudioStream" uid="uid://c2g5xgql3q4g5" path="res://Assets/Sounds/Lhomme_Manete_-_Epic_Champ.mp3" id="38_pe163"]
 [ext_resource type="PackedScene" uid="uid://dbexx0cayjoc3" path="res://Game Components/Riddles/riddle.tscn" id="39_26xto"]
-[ext_resource type="PackedScene" path="res://Game Components/Change Scene/finished_level3.tscn" id="39_v1pj0"]
+[ext_resource type="PackedScene" uid="uid://dexq02848gcs5" path="res://Game Components/Change Scene/finished_level3.tscn" id="39_v1pj0"]
 [ext_resource type="Script" path="res://Game Components/Change Scene/finished_level3.gd" id="40_vgp3e"]
-[ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/AngryPig.tscn" id="43_krrl6"]
+[ext_resource type="PackedScene" uid="uid://dj3lby4w80cyl" path="res://Game Components/Characters/Enemies/AngryPig.tscn" id="43_krrl6"]
 [ext_resource type="PackedScene" uid="uid://ulvds2vcmy7p" path="res://Game Components/Riddles/elephant_riddle_1.tscn" id="43_v10qy"]
-[ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/GenericEnemy2.tscn" id="44_cmku6"]
+[ext_resource type="PackedScene" uid="uid://dkxrgcpveacla" path="res://Game Components/Characters/Enemies/GenericEnemy2.tscn" id="44_cmku6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xmyt"]
 texture = ExtResource("2_ffvfs")
@@ -8915,7 +8915,7 @@ animations = [{
 size = Vector2(48, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t07bp"]
-size = Vector2(68.0255, 49.6946)
+size = Vector2(79.4752, 53.3756)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6d3l"]
 size = Vector2(742, 39)
@@ -9004,7 +9004,8 @@ shape = SubResource("RectangleShape2D_aruay")
 scale = Vector2(1.48474, 1.08664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elephant/Area2D"]
-position = Vector2(-0.336792, 1.84055)
+position = Vector2(2.02063, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t07bp")
 
 [node name="CollectableObjects" type="Node2D" parent="."]
@@ -9096,7 +9097,7 @@ position = Vector2(521, 32)
 shape = SubResource("RectangleShape2D_u6d3l")
 
 [node name="FinishedLevel" parent="." instance=ExtResource("39_v1pj0")]
-position = Vector2(3050, -66)
+position = Vector2(3054, -65)
 script = ExtResource("40_vgp3e")
 
 [node name="Riddle" parent="." instance=ExtResource("39_26xto")]
@@ -9105,7 +9106,12 @@ position = Vector2(2468, -17)
 
 [node name="ElephantRiddle1" parent="." instance=ExtResource("43_v10qy")]
 
+[node name="LifeBiofact" parent="." instance=ExtResource("32_amkuf")]
+position = Vector2(2484, -74)
+collect = 1
+
 [connection signal="timeout" from="Player/ResetTimer" to="Player" method="_on_reset_timer_timeout"]
 [connection signal="body_exited" from="Elephant/Area2D" to="Elephant" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="FinishedLevel" to="." method="_on_finished_level_body_entered"]
+[connection signal="body_exited" from="ElephantRiddle1" to="ElephantRiddle1" method="_on_body_exited"]
