@@ -17,17 +17,41 @@ shape = SubResource("RectangleShape2D_u5l3w")
 wait_time = 10.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -114.0
+offset_right = 268.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.670588, 0.670588, 0.670588, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
 layout_direction = 2
-offset_left = -219.0
-offset_top = -93.0
-offset_right = 177.0
-offset_bottom = -20.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -254.0
+offset_top = -73.0
+offset_right = 254.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_gfjyy")
-text = "As a conservation method, scientists 
+text = "
+As a conservation method, scientists 
 cross-bred Hawksbill and Loggerhead sea turtles,
  resulting in a new breed. However that could 
-present a new challenge to ecological systems."
+present a new challenge to ecological systems.
+
+"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

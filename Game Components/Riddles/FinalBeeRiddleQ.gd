@@ -11,6 +11,9 @@ extends Area2D
 # Correct answer index
 @export var correct_answer = 3
 
+# Variable to store reference to the player
+var player = null
+
 # Hide riddle on start
 func _ready():
 	riddle_display.visible = false
@@ -22,6 +25,9 @@ func _ready():
 # When player enters the collision boundry
 func _on_body_entered(body):
 	if body.name == "Player":
+		player = body
+		# Disable player movement
+		player.can_move = false
 		riddle_display.visible = true
 		label_text.visible = true
 		button_correct.visible = true
@@ -49,10 +55,11 @@ func _on_button_3_pressed():
 	supports other insects, 
 	which then supports birds, bats, mammals
 	and everything up the food chain with food and shelter."
-	await get_tree().create_timer(5.0).timeout # Small delay for player to read
-	
-	get_tree().change_scene_to_file("res://Game Components/Levels/level_3.tscn")
-	
-	#timer.start(5)
-	#await timer.timeout
-	#queue_free()
+	timer.start(5)
+	await timer.timeout
+	# Enable player movement
+	if player != null:
+		player.can_move = true
+	player = null
+	queue_free()
+	queue_free()

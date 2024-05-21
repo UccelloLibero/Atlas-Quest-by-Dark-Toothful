@@ -22,7 +22,7 @@ extends CharacterBody2D
 # Player movement variables
 @export var speed : float = 200.0
 @export var gravity = 800
-@export var jump_height : float = -300.0
+@export var jump_height : float = -250.0
 
 
 # Custom signals
@@ -47,9 +47,11 @@ var biofacts = int()
 # Energy statistics
 var energy = 0
 
-
 # Cooldown timer for hurt sound
 var hurt_sound_cooldown = false
+
+# Movement flag
+var can_move = true
 
 func _ready():
 	# Update UI labels when signals are emited
@@ -66,25 +68,26 @@ func _ready():
 
 # Movement and physics 
 func _physics_process(delta):
-	# Vertical movement velocity (down)
-	velocity.y += gravity * delta
-	# Horizontal movement processing (left, right)
-	horizontal_movement()
-	# Applies movement
-	move_and_slide()
-	# Applies animations
-	if !Global.is_climbing:
-		player_animations()
+	if can_move:
+		# Vertical movement velocity (down)
+		velocity.y += gravity * delta
+		# Horizontal movement processing (left, right)
+		horizontal_movement()
+		# Applies movement
+		move_and_slide()
+		# Applies animations
+		if !Global.is_climbing:
+			player_animations()
 		
-	# Attacking
-	if Global.is_attacking == true:
-		# Get colliders of raycast node
-		var target = $AttackRayCast.get_collider()
-		# If its valid
-		if target != null:
-			# Remove poacher
-			if target.name == "Poacher":
-				target.play("die")
+		# Attacking
+		if Global.is_attacking == true:
+			# Get colliders of raycast node
+			var target = $AttackRayCast.get_collider()
+			# If its valid
+			if target != null:
+				# Remove poacher
+				if target.name == "Poacher":
+					target.play("stunned")
 				
 				
 
@@ -118,33 +121,34 @@ func player_animations():
 		$AnimatedSprite2D.play("fall")
 
 # Singular input captures
-func _input(event):
-	# On attack
-	if event.is_action_pressed("ui_attack"):
-		Global.is_attacking = true
-		$AnimatedSprite2D.play("attack")
+func _input(event):	
+	if can_move:
+		# On attack
+		if event.is_action_pressed("ui_attack"):
+			Global.is_attacking = true
+			$AnimatedSprite2D.play("attack")
 		
-	# On jump
-	if event.is_action_pressed("ui_jump") and is_on_floor():
-		velocity.y = jump_height
-		$AnimatedSprite2D.play("jump")
+		# On jump
+		if event.is_action_pressed("ui_jump") and is_on_floor():
+			velocity.y = jump_height
+			$AnimatedSprite2D.play("jump")
 		
-	# On climbing ladders
-	if Global.is_climbing == true:
-		if !Input.is_anything_pressed():
-			$AnimatedSprite2D.play("idle")
+		# On climbing ladders
+		if Global.is_climbing == true:
+			if !Input.is_anything_pressed():
+				$AnimatedSprite2D.play("idle")
 		
-		if Input.is_action_pressed("ui_up"):
-			$AnimatedSprite2D.play("climb")
-			gravity = 100
-			velocity.y = -160
-			Global.is_jumping = true
-	# Reset gravity		
-	else:
-		gravity = 350
-		Global.is_climbing = false
-		Global.is_jumping = false
-		
+			if Input.is_action_pressed("ui_up"):
+				$AnimatedSprite2D.play("climb")
+				gravity = 100
+				velocity.y = -160
+				Global.is_jumping = true
+		# Reset gravity		
+		else:
+			gravity = 350
+			Global.is_climbing = false
+			Global.is_jumping = false
+
 
 # Signal to stop attack and climbing loop after single input press
 # Reset animation variables
@@ -268,7 +272,8 @@ func add_energy(fruit):
 
 # Reset the hurt_sound_cooldown aftr short delay
 func _reset_hurt_sound_cooldown():
-	await get_tree().create_timer(0.5).timeout
+	if get_tree():
+		await get_tree().create_timer(0.5).timeout
 	hurt_sound_cooldown = false
 
 

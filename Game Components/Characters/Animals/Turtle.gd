@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
 
-var gravity = 10
+var gravity = 100
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	#Play running animation based on player's proximity
 	if player_in_range:
 		#Run toward player
-		animated_sprite.play("walk")
+		animated_sprite.play("idle")
 		#Move towards player (left direction)
 		move_towards_player(player)
 	else:

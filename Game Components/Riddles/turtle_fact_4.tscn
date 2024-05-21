@@ -17,16 +17,41 @@ shape = SubResource("RectangleShape2D_u5l3w")
 wait_time = 10.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -101.0
+offset_right = 150.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.670588, 0.670588, 0.670588, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
 layout_direction = 2
-offset_left = -219.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
 offset_top = -93.0
-offset_right = 177.0
-offset_bottom = -20.0
+offset_right = 141.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_eft62")
-text = "Hawksbill Sea Turtles get 
+text = "
+Hawksbill Sea Turtles get 
 their names from their 
-beak-like appearance."
+beak-like appearance.
+
+"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

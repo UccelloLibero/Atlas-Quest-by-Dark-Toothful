@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
 
-var gravity = 10
+var gravity = 100
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	#Check if the player exists and is in range
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position) 
-		if distance_to_player < 70: #Adjust as necessary
+		if distance_to_player < 100: #Adjust as necessary
 			player_in_range = true
 		else:
 			player_in_range = false

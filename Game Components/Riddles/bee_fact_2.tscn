@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://4unxt1fu8s4m"]
+[gd_scene load_steps=4 format=3 uid="uid://d35kxbyb8vklq"]
 
-[ext_resource type="Script" path="res://Game Components/Riddles/BeeRiddle1.gd" id="1_8dcct"]
-[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_7qdp4"]
+[ext_resource type="Script" path="res://Game Components/Riddles/BeeFact2.gd" id="1_fxfei"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_dl2yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
 size = Vector2(50, 43)
 
-[node name="BeeRiddle1" type="Area2D"]
-script = ExtResource("1_8dcct")
+[node name="BeeFact2" type="Area2D"]
+script = ExtResource("1_fxfei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15, 11.5)
@@ -21,7 +21,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -239.0
 offset_top = -113.0
-offset_right = 212.0
+offset_right = 203.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.188235, 0.270588, 0.160784, 1)
@@ -33,11 +33,11 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 216.0
 offset_bottom = 45.0
-theme_override_fonts/font = ExtResource("2_7qdp4")
-text = "When foraging, worker bees can fly
-up to 20mph or 32kmh, 
-beating their wings 200 times a second.
-This creates the iconic 'bzzz' sound."
+theme_override_fonts/font = ExtResource("2_dl2yp")
+text = "Bees have six legs that help them fly, 
+feed and pollinate. Each set of legs
+has a different purpose, like collecting
+pollen, grooming and flight stability. "
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]

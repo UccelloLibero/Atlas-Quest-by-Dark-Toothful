@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1f8q4u0kjud3" path="res://Assets/Sprites/Turtle/turtle.png" id="2_b52eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a1js"]
-size = Vector2(5, 8)
+size = Vector2(21, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arnvj"]
 atlas = ExtResource("2_b52eg")
@@ -43,13 +43,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_matkw"]
-size = Vector2(36, 32)
+size = Vector2(26, 15)
 
 [node name="Turtle" type="CharacterBody2D"]
 script = ExtResource("1_pam7d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, 6)
+position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_7a1js")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -59,7 +59,7 @@ animation = &"idle"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 1)
+position = Vector2(1, 8.5)
 shape = SubResource("RectangleShape2D_matkw")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

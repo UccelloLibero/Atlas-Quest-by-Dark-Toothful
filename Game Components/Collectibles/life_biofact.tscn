@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvgvkhyqotmn2"]
+[gd_scene load_steps=13 format=3 uid="uid://bvgvkhyqotmn2"]
 
 [ext_resource type="Script" path="res://Game Components/Collectibles/life_biofact.gd" id="1_0y1a7"]
 [ext_resource type="Texture2D" uid="uid://dfbsrki06huod" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/08.png" id="2_up05b"]
 [ext_resource type="Texture2D" uid="uid://c2udb6w1u4t3w" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/06.png" id="3_y20iy"]
+[ext_resource type="Texture2D" uid="uid://dpu0i7ecu0b83" path="res://Assets/Keys etc/Selected/07.png" id="4_akqbg"]
 [ext_resource type="Texture2D" uid="uid://c7mf0iyhcueah" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart1.png" id="4_gohk0"]
+[ext_resource type="Texture2D" uid="uid://x04bkb8lyncn" path="res://Assets/Keys etc/Selected/09.png" id="5_0nmjo"]
 [ext_resource type="Texture2D" uid="uid://dmg0o7cp7lk07" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart2.png" id="5_a2cdw"]
 [ext_resource type="Texture2D" uid="uid://cffk4lhwmxyn1" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart3.png" id="6_fdan8"]
 [ext_resource type="Texture2D" uid="uid://closu8rrqtwo1" path="res://Assets/Collectibles/LivesAndBiofactAndFruit/heart4.png" id="7_ga8d0"]
@@ -20,6 +22,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_y20iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_akqbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0nmjo")
 }],
 "loop": true,
 "name": &"biofact",
@@ -57,7 +65,7 @@ shape = SubResource("CircleShape2D_3xxmb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m1tva")
 animation = &"life"
-frame_progress = 0.570138
+frame_progress = 0.121605
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

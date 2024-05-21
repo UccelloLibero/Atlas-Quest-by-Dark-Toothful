@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
-var gravity = 10
+var gravity = 100
 
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
@@ -11,33 +11,36 @@ var gravity = 10
 # Declare whether character is dead or alive
 var _died = false
 
-#A variable that tracks the player's proximity to the enemy
+# A variable that tracks the player's proximity to the enemy
 var player_in_range = false
 var player_in_contact = false
+
+func _ready():
+	animated_sprite.play(IDLE_ANIMATION)
 
 func _physics_process(delta):
 	# Add the gravity.
 	velocity.y += gravity * delta
 
 	# Get a reference to the player node
-	var player = get_parent().get_node("Player") #Adjust path to player
+	var player = get_parent().get_node("Player") # Adjust path to player
 	
-	#Check if the player exists and is in range
+	# Check if the player exists and is in range
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position) 
-		if distance_to_player < 80: #Adjust as necessary
+		if distance_to_player < 100: # Adjust if you want poacher to detect you sooner and longer
 			player_in_range = true
 		else:
 			player_in_range = false
 	
-	#Play animation based on player's proximity
+	# Play animation based on player's proximity
 	if player_in_contact:
 		# Play stunned animation when in contact wiht the player
-		animated_sprite.play("die")
+		animated_sprite.play("stunned")
 	elif player_in_range:
-		#Run toward player
+		# Run toward player
 		animated_sprite.play("run")
-		#Move towards player (left direction)
+		# Move towards player (left direction)
 		move_towards_player(player)
 			
 	else:
@@ -48,21 +51,19 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-#Function to get enemy to move to the left
+# Function to get enemy to move to the left
 func move_towards_player(player):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * SPEED
-	velocity.y += gravity # Enemy only moves left and right
+	velocity.y += gravity 
 	
 	if direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
 	else:
 		$AnimatedSprite2D.flip_h = false
-	
-func _ready():
-	animated_sprite.play(IDLE_ANIMATION)
 
 
+# Deal damage to player
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		player_in_contact = true

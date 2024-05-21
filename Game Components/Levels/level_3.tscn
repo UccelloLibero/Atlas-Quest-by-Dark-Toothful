@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" path="res://Game Components/Change Scene/finished_level3.tscn" id="39_v1pj0"]
 [ext_resource type="Script" path="res://Game Components/Change Scene/finished_level3.gd" id="40_vgp3e"]
 [ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/AngryPig.tscn" id="43_krrl6"]
-[ext_resource type="PackedScene" path="res://Game Components/Riddles/elephant_riddle_1.tscn" id="43_v10qy"]
+[ext_resource type="PackedScene" uid="uid://ulvds2vcmy7p" path="res://Game Components/Riddles/elephant_riddle_1.tscn" id="43_v10qy"]
 [ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/GenericEnemy2.tscn" id="44_cmku6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xmyt"]

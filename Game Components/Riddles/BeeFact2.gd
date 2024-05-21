@@ -1,17 +1,20 @@
-# BeeRiddle2.gd
+# BeeFact2.gd
 extends Area2D
 
 # Reference nodes of BeeRiddle1 scene
-@onready var riddle_display = $ColorRect
+@onready var fact_display = $ColorRect
 @onready var label_text = $ColorRect/Label
 @onready var timer = $Timer
 
 # Exported variable to set duration of label visibility
-@export var label_duration = 8.0
+@export var label_duration = 10.0
+
+# Variable to store reference to the player
+var player = null
 
 # Hide riddle on start
 func _ready():
-	riddle_display.visible = false
+	fact_display.visible = false
 	label_text.visible = false
 	$Timer.one_shot = true
 	$Timer.wait_time = label_duration
@@ -19,11 +22,20 @@ func _ready():
 # When player enters the collision boundry
 func _on_body_entered(body):
 	if body.name == "Player":
-		riddle_display.visible = true
+		player = body
+		# Disable player movement
+		player.can_move = false
+		fact_display.visible = true
 		label_text.visible = true
 		$Timer.start()
 		
 
 # After timer times out, clear the scene of the ColorRect and label
 func _on_timer_timeout():
+	fact_display.visible = false
+	label_text.visible = false
+	# Enable player movement
+	if player != null:
+		player.can_move = true
+	player = null
 	queue_free()

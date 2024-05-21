@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://g1eywntvpwyi" path="res://Assets/Sprites/Animal pack/Leaping Frog/LeapingFrogIdleSide.png" id="2_d0ad6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a1js"]
-size = Vector2(5, 8)
+size = Vector2(16, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6h8ny"]
 atlas = ExtResource("2_d0ad6")
@@ -39,27 +39,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 20.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_matkw"]
-size = Vector2(36, 32)
+size = Vector2(18, 13)
 
 [node name="LeapingFrog" type="CharacterBody2D"]
 script = ExtResource("1_bljtg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, 6)
+position = Vector2(2, 5.5)
 shape = SubResource("RectangleShape2D_7a1js")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_34ixl")
 animation = &"idle"
+frame_progress = 0.849275
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 1)
+position = Vector2(2, 2.5)
 shape = SubResource("RectangleShape2D_matkw")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
