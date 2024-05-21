@@ -8,8 +8,10 @@ extends Area2D
 @onready var collected_sound = $AudioStreamPlayer2D
 
 # Exported variable to adjust the label visibility time
-@export var label_duration = 7
-# life and biofact enum
+@export var label_duration = 7.0
+
+# Variable to store reference to the player
+var player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,21 +25,19 @@ func _ready():
 # Show label when the player enters the Fact area
 func _on_body_entered(body):
 	if body.name == "Player":
+		player = body
+		player.can_move = false
 		ElephantFact1_colorRect.visible = true
 		ElephantFact1_label.visible = true
-		timer.start(5)
-
-# Hide label when the player exits the Fact Area
-func _on_body_exited(body):
-	if body.name == "Player":
-		#timer.stop() # Stop timer to avoid automatic hiding
-		#ElephantFact1_colorRect.visible = false
-		#ElephantFact1_label.visible = false
-		ElephantFact1_animation.play("collected")
-		await ElephantFact1_animation.animation_finished
-		queue_free()
-		
+		timer.start()
 		
 # Hide the label when the timer times out
 func _on_timer_timeout():
+	ElephantFact1_colorRect.visible = false
 	ElephantFact1_label.visible = false
+	# Enable player movement
+	if player != null:
+		player.can_move = true
+	player = null
+	queue_free()
+

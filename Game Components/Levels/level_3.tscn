@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://ba6uscpvdgppn"]
+[gd_scene load_steps=93 format=3 uid="uid://ba6uscpvdgppn"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_3.gd" id="1_70tcs"]
 [ext_resource type="Texture2D" uid="uid://dexasjncjmev4" path="res://Assets/Pixel Art Adventure 1/Background/Yellow.png" id="1_nj502"]
@@ -26,23 +26,22 @@
 [ext_resource type="Texture2D" uid="uid://xm882aso7e3" path="res://Assets/Pixel Art Adventure 1/Traps/Spikes/Nature/Tiles/7.png" id="22_1ru1y"]
 [ext_resource type="Script" path="res://Game Components/Levels/Level3Camera.gd" id="24_b0hch"]
 [ext_resource type="PackedScene" uid="uid://7yis8p27pc4e" path="res://Game Components/Characters/Enemies/Rhino.tscn" id="24_exqat"]
-[ext_resource type="PackedScene" uid="uid://bt6keukg2ul6m" path="res://Game Components/Characters/Enemies/generic_enemy.tscn" id="25_c584y"]
 [ext_resource type="PackedScene" uid="uid://ba2ieqjdrbmwr" path="res://Game Components/Collectibles/fruit.tscn" id="27_f84v5"]
 [ext_resource type="PackedScene" uid="uid://coqwvvarwdabq" path="res://Game Components/Collectibles/ElephantFact1.tscn" id="28_3os3w"]
-[ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/gorilla.tscn" id="29_fgvuv"]
+[ext_resource type="PackedScene" uid="uid://cwahngksb6g48" path="res://Game Components/Characters/Enemies/gorilla.tscn" id="29_fgvuv"]
 [ext_resource type="PackedScene" uid="uid://n43uuvdeg7fr" path="res://Game Components/Collectibles/elephant_fact_3.tscn" id="30_ft6gq"]
 [ext_resource type="PackedScene" uid="uid://bs6cpmw5p3dcw" path="res://Game Components/Collectibles/ElephantFact2.tscn" id="30_oee6k"]
+[ext_resource type="PackedScene" uid="uid://cu0nyfhwljxb" path="res://Game Components/Characters/Enemies/poacher_green.tscn" id="30_uvpfr"]
 [ext_resource type="Script" path="res://Game Components/Characters/Animals/Elephant.gd" id="31_pgbdl"]
 [ext_resource type="Texture2D" uid="uid://0wnql3mbth76" path="res://Assets/Sprites/Elephant/elephant.png" id="32_84mde"]
 [ext_resource type="PackedScene" uid="uid://bvgvkhyqotmn2" path="res://Game Components/Collectibles/life_biofact.tscn" id="32_amkuf"]
-[ext_resource type="PackedScene" path="res://Game Components/Collectibles/ElephantFact4.tscn" id="38_bc7cu"]
+[ext_resource type="PackedScene" uid="uid://cxot5w4tinj65" path="res://Game Components/Collectibles/ElephantFact4.tscn" id="38_bc7cu"]
 [ext_resource type="AudioStream" uid="uid://c2g5xgql3q4g5" path="res://Assets/Sounds/Lhomme_Manete_-_Epic_Champ.mp3" id="38_pe163"]
 [ext_resource type="PackedScene" uid="uid://dbexx0cayjoc3" path="res://Game Components/Riddles/riddle.tscn" id="39_26xto"]
-[ext_resource type="PackedScene" path="res://Game Components/Change Scene/finished_level3.tscn" id="39_v1pj0"]
+[ext_resource type="PackedScene" uid="uid://dexq02848gcs5" path="res://Game Components/Change Scene/finished_level3.tscn" id="39_v1pj0"]
 [ext_resource type="Script" path="res://Game Components/Change Scene/finished_level3.gd" id="40_vgp3e"]
-[ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/AngryPig.tscn" id="43_krrl6"]
+[ext_resource type="PackedScene" uid="uid://dj3lby4w80cyl" path="res://Game Components/Characters/Enemies/AngryPig.tscn" id="43_krrl6"]
 [ext_resource type="PackedScene" uid="uid://ulvds2vcmy7p" path="res://Game Components/Riddles/elephant_riddle_1.tscn" id="43_v10qy"]
-[ext_resource type="PackedScene" path="res://Game Components/Characters/Enemies/GenericEnemy2.tscn" id="44_cmku6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xmyt"]
 texture = ExtResource("2_ffvfs")
@@ -8976,17 +8975,17 @@ script = ExtResource("24_b0hch")
 [node name="Rhino" parent="." instance=ExtResource("24_exqat")]
 position = Vector2(487, -62)
 
-[node name="Generic Enemy" parent="." instance=ExtResource("25_c584y")]
-position = Vector2(1138, -64)
-
-[node name="GenericEnemy2" parent="." instance=ExtResource("44_cmku6")]
-position = Vector2(2199, -64)
-
 [node name="Gorilla" parent="." instance=ExtResource("29_fgvuv")]
 position = Vector2(1666, -66)
 
 [node name="AngryPig" parent="." instance=ExtResource("43_krrl6")]
 position = Vector2(1423, -58)
+
+[node name="PoacherGreen" parent="." instance=ExtResource("30_uvpfr")]
+position = Vector2(2180, -66)
+
+[node name="PoacherGreen2" parent="." instance=ExtResource("30_uvpfr")]
+position = Vector2(1135, -66)
 
 [node name="Elephant" type="CharacterBody2D" parent="."]
 position = Vector2(2761, -76)
