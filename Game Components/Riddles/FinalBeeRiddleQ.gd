@@ -8,9 +8,6 @@ extends Area2D
 @onready var button_option2 = $ColorRect/Button3
 @onready var timer = $Timer
 
-# Correct answer index
-@export var correct_answer = 3
-
 # Variable to store reference to the player
 var player = null
 
@@ -61,5 +58,4 @@ func _on_button_3_pressed():
 	if player != null:
 		player.can_move = true
 	player = null
-	queue_free()
 	queue_free()

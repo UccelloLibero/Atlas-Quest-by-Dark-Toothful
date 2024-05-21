@@ -24,7 +24,7 @@ offset_top = -368.0
 offset_right = 315.5
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.188235, 0.270588, 0.160784, 0.407843)
+color = Color(0.188235, 0.270588, 0.160784, 0.760784)
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0

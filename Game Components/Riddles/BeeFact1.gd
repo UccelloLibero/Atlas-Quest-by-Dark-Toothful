@@ -7,7 +7,7 @@ extends Area2D
 @onready var timer = $Timer
 
 # Exported variable to set duration of label visibility
-@export var label_duration = 10.0
+@export var label_duration = 8.0
 
 # Variable to store reference to the player
 var player = null

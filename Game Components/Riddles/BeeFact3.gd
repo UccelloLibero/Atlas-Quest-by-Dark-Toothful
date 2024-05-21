@@ -7,12 +7,12 @@ extends Area2D
 @onready var timer = $Timer
 
 # Exported variable to set duration of label visibility
-@export var label_duration = 10.0
+@export var label_duration = 8.0
 
 # Variable to store reference to the player
 var player = null
 
-# Hide riddle on start
+# Hide fact on start
 func _ready():
 	fact_display.visible = false
 	label_text.visible = false
