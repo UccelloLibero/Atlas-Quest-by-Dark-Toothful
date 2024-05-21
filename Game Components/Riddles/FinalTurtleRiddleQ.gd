@@ -9,8 +9,8 @@ extends Area2D
 @onready var button_option3 = $ColorRect/Button4
 @onready var timer = $Timer
 
-# Correct answer index
-@export var correct_answer = 3
+# Variable to store reference to the player
+var player = null
 
 # Hide riddle on start
 func _ready():
@@ -24,6 +24,9 @@ func _ready():
 # When player enters the collision boundry
 func _on_body_entered(body):
 	if body.name == "Player":
+		player = body
+		# Disable player movement
+		player.can_move = false
 		riddle_display.visible = true
 		label_text.visible = true
 		button_option0.visible = true
@@ -42,6 +45,10 @@ func _on_button_3_pressed():
 	label_text.text = "That is correct!"
 	timer.start(3)
 	await timer.timeout
+	# Enable player movement
+	if player != null:
+		player.can_move = true
+	player = null
 	queue_free()
 
 func _on_button_4_pressed():
