@@ -17,16 +17,33 @@ shape = SubResource("RectangleShape2D_u5l3w")
 wait_time = 10.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -177.0
+offset_top = -86.0
+offset_right = 219.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.670588, 0.670588, 0.670588, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
 layout_direction = 2
-offset_left = -219.0
-offset_top = -93.0
-offset_right = 177.0
-offset_bottom = -20.0
+layout_mode = 0
+offset_left = 17.0
+offset_right = 396.0
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("2_krsuo")
-text = "Sea Turtles have been around for 
+text = "
+Sea Turtles have been around for 
 100 million years and can live to be 
-up to 150 years old."
+up to 150 years old.
+
+"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

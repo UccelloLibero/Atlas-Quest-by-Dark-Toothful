@@ -12,9 +12,9 @@ position = Vector2(542, 384)
 texture = ExtResource("2_d7dab")
 
 [node name="PlayAgain" type="Button" parent="."]
-offset_left = 300.0
+offset_left = 250.0
 offset_top = 300.0
-offset_right = 500.0
+offset_right = 450.0
 offset_bottom = 400.0
 theme_override_fonts/font = ExtResource("3_u3shc")
 theme_override_font_sizes/font_size = 30

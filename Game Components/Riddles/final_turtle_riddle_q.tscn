@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://kehdnc6vle7f"]
+
+[ext_resource type="Script" path="res://Game Components/Riddles/FinalTurtleRiddleQ.gd" id="1_b31yv"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_ajciv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
+size = Vector2(128, 192)
+
+[node name="FinalTurtleRiddleQ" type="Area2D"]
+script = ExtResource("1_b31yv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13, -13)
+shape = SubResource("RectangleShape2D_u5l3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -410.0
+offset_top = -310.0
+offset_right = 420.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.670588, 0.670588, 0.670588, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 30.0
+offset_right = 556.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_ajciv")
+text = "What two sea turtle species
+were crossbred and why? "
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 81.0
+offset_right = 809.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_ajciv")
+text = "Leatherback and Hawksbill - to create biodiversity."
+
+[node name="Button2" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 139.0
+offset_right = 809.0
+offset_bottom = 179.0
+theme_override_fonts/font = ExtResource("2_ajciv")
+text = "Hawksbill and Loggerhead - to create a new species that would be stronger. "
+
+[node name="Button3" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 195.0
+offset_right = 809.0
+offset_bottom = 235.0
+theme_override_fonts/font = ExtResource("2_ajciv")
+text = "Hawksbill and Loggerhead - as a conservation method. "
+
+[node name="Button4" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 251.0
+offset_right = 809.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("2_ajciv")
+text = "Loggerhead and Leatherback - to balance the jellyfish populations. "
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ColorRect/Button4" to="." method="_on_button_4_pressed"]

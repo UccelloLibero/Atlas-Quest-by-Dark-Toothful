@@ -9,31 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cak0poovj8m4u" path="res://Assets/Poachers/EXTRAS/BulletStream.png" id="7_185ei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefmc"]
-size = Vector2(1, 5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rmed8"]
-atlas = ExtResource("2_34c43")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_66lct"]
-atlas = ExtResource("2_34c43")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hiovg"]
-atlas = ExtResource("2_34c43")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvx2y"]
-atlas = ExtResource("3_uf0xp")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eih37"]
-atlas = ExtResource("3_uf0xp")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hcoqn"]
-atlas = ExtResource("3_uf0xp")
-region = Rect2(96, 0, 48, 48)
+size = Vector2(7, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00lsp"]
 atlas = ExtResource("4_m4t2b")
@@ -91,31 +67,32 @@ region = Rect2(48, 0, 48, 48)
 atlas = ExtResource("3_uf0xp")
 region = Rect2(96, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmed8"]
+atlas = ExtResource("2_34c43")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66lct"]
+atlas = ExtResource("2_34c43")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiovg"]
+atlas = ExtResource("2_34c43")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvx2y"]
+atlas = ExtResource("3_uf0xp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eih37"]
+atlas = ExtResource("3_uf0xp")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcoqn"]
+atlas = ExtResource("3_uf0xp")
+region = Rect2(96, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_syso8"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rmed8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_66lct")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hiovg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yvx2y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eih37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hcoqn")
-}],
-"loop": true,
-"name": &"die",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_00lsp")
@@ -172,6 +149,29 @@ animations = [{
 "loop": true,
 "name": &"shoot",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmed8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66lct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiovg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvx2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eih37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcoqn")
+}],
+"loop": true,
+"name": &"stunned",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ta3fd"]
@@ -189,19 +189,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3qcu"]
+height = 38.0
 
 [node name="PoacherGreen" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_gts0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, -0.5)
+position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_tefmc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_syso8")
-animation = &"die"
+animation = &"stunned"
 
 [node name="PoacherEffect" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ta3fd")

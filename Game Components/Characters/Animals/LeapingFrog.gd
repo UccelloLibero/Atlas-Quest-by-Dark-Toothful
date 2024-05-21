@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 50.0
 const IDLE_ANIMATION = "idle"
 
-var gravity = 50
+var gravity = 100
 
 @onready var animated_sprite = $AnimatedSprite2D
 

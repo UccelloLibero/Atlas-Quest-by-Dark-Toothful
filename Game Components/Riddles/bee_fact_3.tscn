@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://by2t52uahcm7d"]
 
-[ext_resource type="Script" path="res://Game Components/Riddles/BeeRiddle3.gd" id="1_8hq0t"]
+[ext_resource type="Script" path="res://Game Components/Riddles/BeeFact3.gd" id="1_8hq0t"]
 [ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_1d4b2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
 size = Vector2(77, 69)
 
-[node name="BeeRiddle3" type="Area2D"]
+[node name="BeeFact3" type="Area2D"]
 script = ExtResource("1_8hq0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -43,3 +43,4 @@ wait_time = 10.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
