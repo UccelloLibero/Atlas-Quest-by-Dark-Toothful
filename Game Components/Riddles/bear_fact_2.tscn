@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://d35kxbyb8vklq"]
+
+[ext_resource type="Script" path="res://Game Components/Riddles/BearFact2.gd" id="1_fxfei"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_dl2yp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
+size = Vector2(50, 43)
+
+[node name="BearFact2" type="Area2D"]
+script = ExtResource("1_fxfei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 11.5)
+shape = SubResource("RectangleShape2D_u5l3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -239.0
+offset_top = -163.0
+offset_right = 223.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.188235, 0.270588, 0.160784, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 216.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_dl2yp")
+text = "While brown bear population numbers 
+are currently stable, they are considered 
+a high priority in conservation. 
+Given their dependence on large
+natural areas, brown bears are important
+management indicators 
+for a number of other wildlife species.. "
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

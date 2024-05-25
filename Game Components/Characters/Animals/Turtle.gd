@@ -24,7 +24,7 @@ func _physics_process(delta):
 	#Check if the player exists and is in range
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position) 
-		if distance_to_player < 60: #Adjust as necessary
+		if distance_to_player < 80: #Adjust as necessary
 			player_in_range = true
 		else:
 			player_in_range = false
@@ -58,6 +58,6 @@ func _ready():
 	animated_sprite.play(IDLE_ANIMATION)
 
 
-func _on_area_2d_body_entered(body):
-	if body.name == "Player":
-		body.reduce_energy()
+#func _on_area_2d_body_entered(body):
+	#if body.name == "Player":
+		#body.reduce_energy()

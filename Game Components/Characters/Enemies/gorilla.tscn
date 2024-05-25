@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwahngksb6g48"]
+[gd_scene load_steps=14 format=3 uid="uid://d0ip48akgd5jd"]
 
 [ext_resource type="Script" path="res://Game Components/Characters/Enemies/Gorilla.gd" id="1_v12x5"]
 [ext_resource type="Texture2D" uid="uid://pem0a4hhc3yn" path="res://Assets/Sprites/Animal pack/Hulking Gorilla/HulkingGorillaIdleSide.png" id="2_ql6jy"]

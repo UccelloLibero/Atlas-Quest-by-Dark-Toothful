@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1mrxlto21rnm"]
+
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="1_436bn"]
+[ext_resource type="Script" path="res://Game Components/Riddles/bear_fact_4.gd" id="1_nsp43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
+size = Vector2(50, 43)
+
+[node name="BearFact4" type="Area2D"]
+script = ExtResource("1_nsp43")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 11.5)
+shape = SubResource("RectangleShape2D_u5l3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -293.0
+offset_top = -118.0
+offset_right = 324.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.188235, 0.270588, 0.160784, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 597.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("1_436bn")
+text = "There are about 110,00 brown bears in the world.
+They inhabit Forests and Tundra along the Arctic region.
+They are big but they can move fast 
+when they want to.
+And they weight up to 1500 lbs or 680 kg. "
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

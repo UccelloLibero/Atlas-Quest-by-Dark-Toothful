@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://by2t52uahcm7d"]
+
+[ext_resource type="Script" path="res://Game Components/Riddles/BearFact3.gd" id="1_8hq0t"]
+[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="2_1d4b2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5l3w"]
+size = Vector2(77, 69)
+
+[node name="BearFact3" type="Area2D"]
+script = ExtResource("1_8hq0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28.5, 24.5)
+shape = SubResource("RectangleShape2D_u5l3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -99.0
+offset_right = 264.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.188235, 0.270588, 0.160784, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 23.0
+offset_right = 513.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("2_1d4b2")
+text = "In Southwest Alaska brown bears face an
+impending threat from the proposed
+development of an open-pit gold and copper mine."
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var level_sound = $AudioStreamPlayer2D
 
-var song = preload("res://Assets/Sounds/Lhomme_Manete_-_Epic_Champ.mp3")
+var song = preload("res://Assets/Sounds/Lhomme_Manete_-_Moving_Boulder.mp3")
 
 func _ready():
 	level_sound.stream = song

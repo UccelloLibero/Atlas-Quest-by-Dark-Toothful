@@ -1,102 +1,57 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmq0p0lb57pq8"]
+[gd_scene load_steps=9 format=3 uid="uid://jlci0tjwaujf"]
 
-[ext_resource type="Script" path="res://Game Components/Characters/Animals/Bee.gd" id="1_xo5qa"]
-[ext_resource type="Texture2D" uid="uid://b40k7r1unk6ip" path="res://Assets/Enemies/Bee/Idle (36x34).png" id="2_ho3y7"]
-[ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="3_61088"]
+[ext_resource type="Script" path="res://Game Components/Characters/Animals/Bee.gd" id="1_ennvl"]
+[ext_resource type="Texture2D" uid="uid://vabq8o8cbux3" path="res://Assets/Sprites/Bee/bee_spritesheet.png" id="2_l0me4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e165b"]
-atlas = ExtResource("2_ho3y7")
-region = Rect2(0, 0, 36, 34)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3abh2"]
+size = Vector2(51, 55)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_018fg"]
-atlas = ExtResource("2_ho3y7")
-region = Rect2(36, 0, 36, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jv0x"]
+atlas = ExtResource("2_l0me4")
+region = Rect2(0, 0, 25, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4upa2"]
-atlas = ExtResource("2_ho3y7")
-region = Rect2(72, 0, 36, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m6iv"]
+atlas = ExtResource("2_l0me4")
+region = Rect2(25, 0, 25, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i04am"]
-atlas = ExtResource("2_ho3y7")
-region = Rect2(108, 0, 36, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6sll"]
+atlas = ExtResource("2_l0me4")
+region = Rect2(50, 0, 25, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gny43"]
-atlas = ExtResource("2_ho3y7")
-region = Rect2(144, 0, 36, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_np24x"]
+atlas = ExtResource("2_l0me4")
+region = Rect2(75, 0, 25, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t5pmy"]
-atlas = ExtResource("2_ho3y7")
-region = Rect2(180, 0, 36, 34)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_thw3w"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0hkv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e165b")
+"texture": SubResource("AtlasTexture_7jv0x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_018fg")
+"texture": SubResource("AtlasTexture_5m6iv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4upa2")
+"texture": SubResource("AtlasTexture_w6sll")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i04am")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gny43")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t5pmy")
+"texture": SubResource("AtlasTexture_np24x")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 20.0
+"name": &"fly",
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_106fy"]
-size = Vector2(88.5, 85)
-
 [node name="Bee" type="Area2D"]
-script = ExtResource("1_xo5qa")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_thw3w")
-animation = &"idle"
+script = ExtResource("1_ennvl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.25, 7.5)
-shape = SubResource("RectangleShape2D_106fy")
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_3abh2")
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -311.0
-offset_top = -52.0
-offset_bottom = 66.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0.188235, 0.270588, 0.160784, 1)
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 1
-offset_right = 304.0
-offset_bottom = 111.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_61088")
-text = "Bees communicate using 
-a dance called  \"wiggle dance\". 
-Let's wiggle together and 
-learn more about bees. 
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_u0hkv")
+animation = &"fly"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

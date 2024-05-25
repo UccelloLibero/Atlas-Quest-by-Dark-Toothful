@@ -2,22 +2,19 @@
 extends Area2D
 
 @onready var bee_animation = $AnimatedSprite2D
-@onready var bee_label = $ColorRect/Label
-@onready var label_bg = $ColorRect
-@onready var timer = $Timer
 
-# Exported variable to adjust the label visibility time (8 seconds)
-@export var label_duration = 8.0
 
 # Get bee ready to follow the player
-@export var follow_speed := 150
+@export var follow_speed = 150
 @onready var player: CharacterBody2D = null
-var is_following := false
-@export var offset := Vector2(0, -70)
+var is_following = false
+@export var offset = Vector2(-50, -100)
 
+var oscillation_speed = 5 # Speed of the oscillation
+var oscillation_amplitude = 5 # Amplitude of the oscillation
+var oscillation_time = 0.0
+var last_player_position = Vector2()
 
-# Flag to check if label has been shown
-var label_shown := false
 
 # Called every frame. 'delta' is the elapsed time sine the previous frame.
 func _process(delta):
@@ -27,35 +24,37 @@ func _process(delta):
 		# Move towards player
 		position = position.move_toward(target_position, follow_speed * delta)
 		
+		# Flip the sprite based on player's relative position
+		if position.x < player.position.x:
+			bee_animation.flip_h = true
+		else:
+			bee_animation.flip_h = false
+		
+		# Check if the player has stopped moving
+		if player.position.distance_to(last_player_position) < 1:
+			# Swivel back and forth
+			oscillation_time += delta * oscillation_speed
+			position.x += sin(oscillation_time) * oscillation_amplitude
+		else:
+			last_player_position = player.position
+	else:
+		# Swivel back and forth when not following
+		oscillation_time += delta * oscillation_speed
+		position.x += sin(oscillation_time) * oscillation_amplitude
+
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bee_animation.play("idle")
-	# Hide label and timer initially
-	label_bg.visible = false
-	bee_label.visible = false
-	timer.one_shot = true
-	timer.wait_time = label_duration
-	
+	bee_animation.play("fly")
 
 
-# Show label when the player enters the Bee area
+# Follow player when player enters area
 func _on_body_entered(body):
 	#print("Body entered: ", body.name) # For debugging
 	if body.name == "Player" and body is CharacterBody2D:
-		if not label_shown:
-			label_bg.visible = true
-			bee_label.visible = true
-			timer.start()
-			label_shown = true # Set the flag to true to show the label only once
-		
 		is_following = true
 		player = body
-
+		last_player_position = player.position
 		
-# Hide the label when the timer times out
-func _on_timer_timeout():
-	label_bg.visible = false
-	bee_label.visible = false
 	
-
