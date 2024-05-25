@@ -5520,19 +5520,19 @@ scale = Vector2(2, 2)
 position = Vector2(2652, 463)
 
 [node name="Mushroom2" parent="." instance=ExtResource("19_xut6e")]
-position = Vector2(1384, 589)
+position = Vector2(1385, 592)
 
 [node name="Chameleon" parent="." instance=ExtResource("56_kewe0")]
 position = Vector2(-296, 580)
 
 [node name="PoacherGreen" parent="." instance=ExtResource("18_580ut")]
-position = Vector2(3882, 459)
+position = Vector2(3883, 461)
 
 [node name="PoacherGreen2" parent="." instance=ExtResource("18_580ut")]
 position = Vector2(2497, 461)
 
 [node name="Poacher" parent="." instance=ExtResource("47_l80wg")]
-position = Vector2(668, 580)
+position = Vector2(669, 590)
 
 [node name="BrownBear" parent="." instance=ExtResource("44_up38h")]
 position = Vector2(4100, 464)

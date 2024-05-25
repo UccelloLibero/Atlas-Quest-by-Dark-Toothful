@@ -5658,13 +5658,13 @@ position = Vector2(2736, 522)
 position = Vector2(280, 527)
 
 [node name="LeapingFrog" parent="." instance=ExtResource("11_4ya8r")]
-position = Vector2(-165, 453)
+position = Vector2(-165, 455)
 
 [node name="CoralCrab" parent="." instance=ExtResource("10_8mnfy")]
-position = Vector2(646, 454)
+position = Vector2(646, 455)
 
 [node name="CoralCrab2" parent="." instance=ExtResource("10_8mnfy")]
-position = Vector2(1505, 453)
+position = Vector2(1505, 455)
 
 [node name="Energy" parent="." instance=ExtResource("19_xdigs")]
 position = Vector2(-44, 349)
