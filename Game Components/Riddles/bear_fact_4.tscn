@@ -39,7 +39,7 @@ text = "There are about 110,000 brown bears in the world.
 They inhabit Forests and Tundra along the Arctic region.
 They are big but they can move fast 
 when they want to.
-And they weight up to 1500 lbs or 680 kg. "
+And they weigh up to 1500 lbs or 680 kg. "
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]

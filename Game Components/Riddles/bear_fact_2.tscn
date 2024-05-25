@@ -40,7 +40,7 @@ a high priority in conservation.
 Given their dependence on large
 natural areas, brown bears are important
 management indicators 
-for a number of other wildlife species.. "
+for a number of other wildlife species."
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
