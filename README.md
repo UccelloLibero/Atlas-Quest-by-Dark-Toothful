@@ -51,7 +51,7 @@ We welcome contributions to improve the game. Here is how you can help:
 
 This project is licensed under the Creative Commons BY-NC-SA License.
 
-## Aknoledgements
+## Acknowledgments
 
 * Built with guidance from Endless Studios. 
 * Special thanks to the gaming community for music, font, and art contrubutions and support for new developers.
