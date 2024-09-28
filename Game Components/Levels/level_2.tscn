@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cu0nyfhwljxb" path="res://Game Components/Characters/Enemies/poacher_green.tscn" id="18_580ut"]
 [ext_resource type="PackedScene" uid="uid://b3foaa6lyg5vk" path="res://Game Components/Characters/Animals/mushroom.tscn" id="19_xut6e"]
 [ext_resource type="PackedScene" uid="uid://cxc8c7c2kgbe0" path="res://Game Components/Riddles/final_bear_riddle_q.tscn" id="22_6whg3"]
-[ext_resource type="Texture2D" uid="uid://q2hehbjw3861" path="res://Assets/Tilesets/Nature/Tiles/18.png" id="22_loy0m"]
 [ext_resource type="FontFile" uid="uid://dnk30javuvt8g" path="res://Assets/Font/Sol Schori.ttf" id="22_mr4o0"]
 [ext_resource type="PackedScene" uid="uid://c1mrxlto21rnm" path="res://Game Components/Riddles/bear_fact_4.tscn" id="23_iqdwd"]
 [ext_resource type="PackedScene" uid="uid://du8tvjpkl6snr" path="res://Game Components/Characters/Animals/blue_bird.tscn" id="24_5r8fy"]
@@ -25,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://4unxt1fu8s4m" path="res://Game Components/Riddles/bear_fact_1.tscn" id="50_r2aoe"]
 [ext_resource type="PackedScene" uid="uid://bvgvkhyqotmn2" path="res://Game Components/Collectibles/life_biofact.tscn" id="51_rt80b"]
 [ext_resource type="PackedScene" uid="uid://fy1se0av51m1" path="res://Game Components/Characters/Animals/chameleon.tscn" id="56_kewe0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ijp2b"]
+load_path = "res://.godot/imported/18.png-2b29d77a967d473d51ef3b08faf08f5c.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mpbo6"]
 texture = ExtResource("2_8h35c")
@@ -5209,7 +5211,7 @@ offset_left = -2420.0
 offset_top = -868.0
 offset_right = 3299.0
 offset_bottom = 2556.0
-texture = ExtResource("22_loy0m")
+texture = SubResource("CompressedTexture2D_ijp2b")
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]

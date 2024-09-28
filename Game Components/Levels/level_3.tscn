@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://ba6uscpvdgppn"]
+[gd_scene load_steps=92 format=3 uid="uid://ba6uscpvdgppn"]
 
 [ext_resource type="Script" path="res://Game Components/Levels/level_3.gd" id="1_70tcs"]
 [ext_resource type="Texture2D" uid="uid://dexasjncjmev4" path="res://Assets/Pixel Art Adventure 1/Background/Yellow.png" id="1_nj502"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c5q2tap3mioum" path="res://Assets/Pixel Art Adventure 1/Terrain/Terrain (16x16).png" id="3_bqidb"]
 [ext_resource type="Texture2D" uid="uid://jm1fhyrhewkn" path="res://Assets/Trees/48x48 trees.png" id="4_768on"]
 [ext_resource type="PackedScene" uid="uid://b2uyic5t8hh12" path="res://Game Components/Characters/Player/player.tscn" id="4_nmdqn"]
-[ext_resource type="Texture2D" uid="uid://bnay3tnmwp5i" path="res://Assets/Tilesets/Nature/Tiles/8.png" id="4_t4esf"]
 [ext_resource type="Texture2D" uid="uid://dt45wuy3hslcp" path="res://Assets/Pixel Art Adventure 1/Traps/Spikes/Nature/Tiles/9.png" id="5_fjeyb"]
 [ext_resource type="Texture2D" uid="uid://bc3v1oejjnr3u" path="res://Assets/Keys etc/Selected/10.png" id="6_i27j3"]
 [ext_resource type="Texture2D" uid="uid://ckmum5xttrqa1" path="res://Assets/Keys etc/Selected/11.png" id="7_ewv1e"]
@@ -5343,7 +5342,6 @@ texture = ExtResource("3_bqidb")
 20:10/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mu251"]
-texture = ExtResource("4_t4esf")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
