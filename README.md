@@ -8,6 +8,8 @@
 
 ![Atlas Quest Demo Screenshot](https://github.com/UccelloLibero/Atlas-Quest-by-Dark-Toothful/blob/main/AtlasQuest4.png)
 
+![Atlas Quest Demo Screenshot](https://github.com/UccelloLibero/Atlas-Quest-by-Dark-Toothful/blob/main/AtlasQuest5.png)
+
 
 ## Educational and Adventure 2D Platformer Game
 
